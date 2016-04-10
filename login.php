@@ -18,7 +18,7 @@
 	// If the user is logged in, redirect them home
 	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
 	if ($loggedIn) {
-		header("Location: index-dale.php");
+		header("Location: index.php");
 		exit;
 	}
 	
@@ -28,7 +28,7 @@
     if ($username == "test" && $password == "pass") {
         $_SESSION['loggedin'] = $username;
         $error = "";
-        header("Location: index-dale.php");
+        header("Location: index.php");
         exit;
     } else {
         $error = 'Login failed.  Please enter your username and password.';

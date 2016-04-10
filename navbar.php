@@ -15,7 +15,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index-dale.php">LinkedIn</a>
+      <a class="navbar-brand" href="index.php">LinkedIn</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -24,7 +24,7 @@
 			if(empty($_GET['id'])) { ?>
 				class="active" <?php } ?>
 		>
-		<a href="index-dale.php">Home</a></li>
+		<a href="index.php">Home</a></li>
       </ul>
         <?php
 			if(!$loggedIn)
@@ -38,7 +38,7 @@
                         <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="" required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-success">Sign in</button>
-                    <a href="index-dale.php?id=register"><button type="button" class="btn btn-primary">Register</button></a>
+                    <a href="index.php?id=register"><button type="button" class="btn btn-primary">Register</button></a>
                 </form>
             </ul>
         <?php } ?>
