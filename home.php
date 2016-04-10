@@ -1,0 +1,13 @@
+<?php session_start(); ?>
+<div class="container-fluid">
+    <h1>Welcome!</h1>
+    <p>Here's a bit of hipster ipsum to fill out the page, yeah?</p>
+    <p>Waistcoat gentrify farm-to-table, flannel austin keffiyeh shoreditch slow-carb green juice humblebrag dreamcatcher craft beer pitchfork lumbersexual aesthetic. Meditation before they sold out next level, thundercats hammock chillwave gastropub cronut everyday carry. Post-ironic blog chicharrones, meditation artisan knausgaard 90's kickstarter butcher mixtape craft beer cliche franzen art party umami. Cornhole gochujang poutine mumblecore, shabby chic scenester food truck crucifix drinking vinegar ennui keffiyeh hashtag vinyl +1. Direct trade blog fixie put a bird on it. Master cleanse venmo actually vinyl church-key. Cliche pork belly street art chillwave polaroid, 8-bit listicle hella flexitarian fap kombucha before they sold out.
+
+    Helvetica poutine before they sold out distillery fingerstache. Pinterest bespoke stumptown, VHS keffiyeh asymmetrical pitchfork whatever retro mustache. Ennui fingerstache heirloom intelligentsia next level. Mustache cronut truffaut keytar hammock, man braid viral green juice +1 chicharrones vegan letterpress. Banjo street art meh etsy, small batch vegan shoreditch celiac 3 wolf moon freegan roof party vinyl pug. Vinyl hashtag mustache squid mixtape, etsy tilde craft beer microdosing poutine. Pinterest photo booth ugh try-hard, truffaut williamsburg gastropub pitchfork forage twee ethical gluten-free semiotics.
+
+    Marfa beard flexitarian, slow-carb put a bird on it messenger bag hammock gochujang mumblecore poutine ramps narwhal. Blue bottle truffaut food truck, paleo hashtag tumblr flannel freegan lo-fi actually wayfarers fap. Portland hashtag mumblecore mlkshk, craft beer schlitz echo park lo-fi irony vice. Hashtag single-origin coffee keffiyeh farm-to-table raw denim. Polaroid kale chips distillery, jean shorts occupy semiotics drinking vinegar quinoa williamsburg tattooed humblebrag pitchfork. Street art ethical blog irony, crucifix you probably haven't heard of them affogato messenger bag stumptown scenester hella. Skateboard church-key try-hard four loko irony, authentic fanny pack forage quinoa.</p>
+    <?php if(!$loggedIn) { ?>
+    <p>To view your profile and connect with others, you'll need to <a href="login.php?id=login">sign in</a> or <a href="register.php?id=register">register.</a></p><?php } else { ?>
+    <p>Now that you're signed in, this is normally the part where we would redirect you to your profile.</p><?php } ?>
+</div>
