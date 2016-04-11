@@ -22,8 +22,8 @@
 		exit;
 	}
 	
-    $username = empty($_POST['username']) ? '' : $_POST['username'];
-    $password = empty($_POST['password']) ? '' : $_POST['password'];
+    $username = empty($_POST['username']) ? '' : htmlspecialchars($_POST['username']);
+    $password = empty($_POST['password']) ? '' : htmlspecialchars($_POST['password']);
 
     if ($username == "test" && $password == "pass") {
         $_SESSION['loggedin'] = $username;
@@ -34,7 +34,6 @@
         $error = 'Login failed.  Please enter your username and password.';
         $contentURL = "login-form.php";
         require "pstructure.php";
-        echo("<p>This is the part where I want to know what the following are: " . $_POST['username'] . " " . $_POST['password'] . "</p>");
     }
 	
 	/* function login_form() {
