@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style type="text/css">
+
+div#main {background-color:#99bbbb;}
+
+div#down {background-color:#E6E6FA;clear:both;}
+
+div#body {background-color:#FAFAD2;height:500px;width:30%;float:left;}
+
+div#text {background-color:#FFF0F5;height:500px;width:70%;float:left;}
+
+h1 {margin-bottom:0;}
+h2 {margin-bottom:0;font-size:18px;}
+ul {margin:0;}
+li {list-style:none;}
+</style>
+
+</head>
+
+<body>
+<div id="main">	
+
+   <div style="float:left"> <h1>Linkedin</h1> </div>
+ 
+<div align="center"> 
+
+    <input type="text" id="searchvalue"  /> 
+    <input type="button" value="search" onclick="window.location.href='search result.html'"> 
+
+</div>
+   
+   <div  align="right"> 
+     <a href="message center.html">
+     <img src="http://images.clipartlogo.com/files/images/43/436012/closed-envelope-clip-art_f.jpg" width="30" height="20" />
+     </a>
+     <a href="network.html">
+       <img src="http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png" width="30" height="20"/>
+       </a>
+       <a href="profile.html">
+       <img src="http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=280060e0bb12c8fcb4a6fec9c933be73/55e736d12f2eb938c1db6832d7628535e4dd6fbf.jpg" width="30" height="20"/>
+       </a>
+      
+     
+   </div>
+  
+  
+
+<div id="down">  
+<table>
+    <tr>
+    <td><a href="profile.html">Home &gt;&gt;</a></td>
+    <td><a href="network.html">My Network &gt;&gt;</a></td> 
+    <td><a href="blank.html">Jobs &gt;&gt;</a></td>   
+    </tr>
+  </table>     
+</div> 
+
+<div id="body" >
+   	
+<h3 align="left">&nbsp;</h3>
+<h3 align="center"> Conversations</h3>
+<div align="center">
+  <table width="203" height="252" border="0" id="main">
+    <tr>
+      <td width="50"> <a href="http://"><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/5/005/047/02b/34aac33.jpg" width="50" height="50" /></a></td>
+      <td width="141"><div align="center"> <a href="profile-view.html">People 1</a></div></td>
+      </tr>
+      <hr />
+    <tr>
+      <td> <a href="http://"><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/035/1aa/09b33b6.jpg" height="50" /></a></td>
+      <td><div align="center"> <a href="profile-view.html">People 2</a></div></td>
+      </tr>
+      
+    <tr>
+      <td> <a href="http://"><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAX-AAAAJGNmMzE3NDI0LTM5MzEtNDIyOC1iYWFkLWM0MmE2Yjg5ZjVjYw.jpg" width="50" height="50" /></a></td>
+      <td><div align="center"> <a href="profile-view.html">People 3</a></div></td>
+      </tr>
+    <tr>
+      <td> <a href="http://"><img src="https://media.licdn.com/media/AAEAAQAAAAAAAANAAAAAJGE1YmQ4Njk4LTgyMzMtNDcyZi1iOWQxLTVjMGIzNTI5MDAxMw.jpg" width="50" height="50" /></a></td>
+      <td><div align="center"> <a href="profile-view.html">People 4</a></div></td>
+      </tr>
+  </table>
+</div>
+</div>
+<div id="text">
+  <div align="center">
+    
+    
+    <form id="form2" name="form2" method="post" action="">
+      <p>
+        <label for="messages"></label>
+        <textarea name="messages" id="messages" cols="85" rows="20"></textarea>
+      </p>
+    </form>
+    <form id="form1" name="form1" method="post" action="">
+      <label for="text"></label>
+    </form>
+    <p>
+      <input type="text" name="text" id="text2" />
+      <input name="Send" type="button" value="Send"/>
+    </p>
+    
+  </div>
+
+
+</div>
+<script>
+
+function search(){
+
+var searchtext=document.getElementById("searchvalue").value;
+var textvalue=document.getElementById("textvalue").innerHTML;
+if(searchtext.length==0){
+return;
+}
+document.getElementById("textvalue").innerHTML=textvalue.replaceAll(searchtext,"<font color='red'>"+searchtext+"</font>");
+}
+
+String.prototype.replaceAll = function(s1,s2){    
+return this.replace(new RegExp(s1,"gm"),s2);    
+}
+</script>
+
+</body>
+</html>
