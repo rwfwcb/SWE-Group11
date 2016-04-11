@@ -1,4 +1,47 @@
-<form class="form-horizontal" action="register.php">
+<?php
+/*
+if($_SERVER['HTTPS'] != 'on'){
+  die(header("Location: https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
+}
+*/
+
+session_start();
+
+if(!empty($_SESSION['user'])){
+  if($_SESSION['user_type'] == 'ind'){
+    header('Location: index.php');
+  } else{
+    header('Location: orgHome.html');
+  }
+}
+
+if(isset($_POST['submit'])) { // Was the form submitted?
+  if ($_POST['password'] != $_POST['cpassword']){
+    echo "<script type='text/javascript'>alert('Password entries do not match.')</script>";
+  }
+
+  require "db.conf";
+
+  if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
+    $sql = "INSERT INTO Profile (email, hashpass) VALUES (?,?)";
+    if ($stmt = mysqli_prepare($link, $sql)) {
+      $email = $_POST['email'];
+      $pass = $_POST['password'];
+      $cpass = $_POST['cpassword'];
+      $hpass = password_hash($pass, PASSWORD_BCRYPT);
+      mysqli_stmt_bind_param($stmt, "ss", $email, $hpass) or die("bind param");
+      if ($pass == $cpass){
+        if(mysqli_stmt_execute($stmt)) {
+          echo "<script type='text/javascript'>alert('Succesfully registered!')</script>";
+        } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
+      }
+    } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
+  } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
+}
+ ?>
+
+
+<form class="form-horizontal" action="register.php" method="POST">
 <fieldset>
 
 <!-- Form Name -->
@@ -11,7 +54,6 @@
       <input id="fname" name="fname" placeholder="First name" class="form-control input-md" required type="text">
       </div>
     </div>
-
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="lname">Last name</label>  
