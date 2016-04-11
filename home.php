@@ -8,6 +8,6 @@
 
     Marfa beard flexitarian, slow-carb put a bird on it messenger bag hammock gochujang mumblecore poutine ramps narwhal. Blue bottle truffaut food truck, paleo hashtag tumblr flannel freegan lo-fi actually wayfarers fap. Portland hashtag mumblecore mlkshk, craft beer schlitz echo park lo-fi irony vice. Hashtag single-origin coffee keffiyeh farm-to-table raw denim. Polaroid kale chips distillery, jean shorts occupy semiotics drinking vinegar quinoa williamsburg tattooed humblebrag pitchfork. Street art ethical blog irony, crucifix you probably haven't heard of them affogato messenger bag stumptown scenester hella. Skateboard church-key try-hard four loko irony, authentic fanny pack forage quinoa.</p>
     <?php if(!$loggedIn) { ?>
-    <p>To view your profile and connect with others, you'll need to <a href="login.php?id=login">sign in</a> or <a href="register.php?id=register">register.</a></p><?php } else { ?>
+    <p>To view your profile and connect with others, you'll need to <a href="login.php?id=login">sign in</a> or <a href="index.php?id=register">register.</a></p><?php } else { ?>
     <p>Now that you're signed in, this is normally the part where we would redirect you to your profile.</p><?php } ?>
 </div>

@@ -42,7 +42,6 @@
 				} else { echo "<script type='text/javascript'>alert('Failed to execute mySQL statement.')</script>"; }
 			} else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
 		} else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
-		
 
 	/* function login_form() {
 		$username = "";
