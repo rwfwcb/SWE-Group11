@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style type="text/css">
+div#container{width:500px}
+div#main {background-color:#99bbbb;}
+
+div#down {background-color:#E6E6FA;clear:both;text-align:center;}
+
+div#body {background-color:#FAFAD2;}
+
+
+h1 {margin-bottom:0;}
+h2 {margin-bottom:0;font-size:18px;}
+ul {margin:0;}
+li {list-style:none;}
+</style>
+
+</head>
+
+<body>
+<div id="main">	
+
+   <div style="float:left"> <h1>Linkedin</h1> </div>
+ 
+<div align="center"> 
+
+    <input type="text" id="searchvalue"  /> 
+    <input type="button" value="search" onclick="window.location.href='search result.html'"> 
+
+</div>
+   
+   <div  align="right"> 
+     <a href="message center.html">
+     <img src="http://images.clipartlogo.com/files/images/43/436012/closed-envelope-clip-art_f.jpg" width="30" height="20" />
+     </a>
+     <a href="network.html">
+       <img src="http://icons.iconarchive.com/icons/gianni-polito/colobrush/256/software-crystal-msn-icon.png" width="30" height="20"/>
+       </a>
+       <a href="profile.html">
+       <img src="http://c.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=280060e0bb12c8fcb4a6fec9c933be73/55e736d12f2eb938c1db6832d7628535e4dd6fbf.jpg" width="30" height="20"/>
+       </a>
+      
+     
+   </div>
+  
+  
+
+      
+<div id="down">  
+<table>
+    <tr>
+    <td><a href="profile.html">Home &gt;&gt;</a></td>
+    <td><a href="network.html">My Network &gt;&gt;</a></td> 
+    <td><a href="blank.html">Jobs &gt;&gt;</a></td>   
+    </tr>
+  </table>     
+</div> 
+
+<div id="body" >
+    	
+<h3 align="center">Results List</h3>
+           
+<p>
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/5/005/047/02b/34aac33.jpg" width="50" height="50" /></td>
+      <td>Result 1</td>
+      <td><input type="button" value="view" onclick="window.location.href='profile-view.html'"></td>
+      </tr>
+    <tr>
+      <td><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/035/1aa/09b33b6.jpg" height="50" /></td>
+      <td>Result 2</td>
+      <td><input type="button" value="view" onclick="window.location.href='profile-view.html'"></td>
+      </tr>
+    <tr>
+      <td><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAX-AAAAJGNmMzE3NDI0LTM5MzEtNDIyOC1iYWFkLWM0MmE2Yjg5ZjVjYw.jpg" width="50" height="50" /></td>
+      <td>Result 3</td>
+      <td><input type="button" value="view" onclick="window.location.href='profile-view.html'"></td>
+      </tr>
+    <tr>
+      <td><img src="https://media.licdn.com/media/AAEAAQAAAAAAAANAAAAAJGE1YmQ4Njk4LTgyMzMtNDcyZi1iOWQxLTVjMGIzNTI5MDAxMw.jpg" width="50" height="50" /></td>
+      <td>Result 4</td>
+      <td><input type="button" value="view" onclick="window.location.href='profile-view.html'"></td>
+      </tr>
+  </table>
+</div>
+</p>            
+</div>
+
+
+
+<script>
+
+function search(){
+
+var searchtext=document.getElementById("searchvalue").value;
+var textvalue=document.getElementById("textvalue").innerHTML;
+if(searchtext.length==0){
+return;
+}
+document.getElementById("textvalue").innerHTML=textvalue.replaceAll(searchtext,"<font color='red'>"+searchtext+"</font>");
+}
+
+String.prototype.replaceAll = function(s1,s2){    
+return this.replace(new RegExp(s1,"gm"),s2);    
+}
+</script>
+
+</body>
+</html>
