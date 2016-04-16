@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<!-- link in Bootstrap and jQuery -->
+<link rel="stylesheet" href="css/app.css">
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery/dist/jquery.min.js"></script>
+</head>
+    <body>        
+        <div class="container">
+            <h1>Hello world</h1>  
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+body {
+	background-color: #D3D3D3;
+}
+
+section {
+	padding: 4;
+}
+
+.networkbox {
+	overflow: auto;
+}
+
+/*prevents "step-down" effects in the first 3 list elements*/
+/*anyone still know why this is happening in chrome?*/
+.list-card {
+	display: inline-block;
+}
+
+/*connection-card boxes, containing image, name, and any basic info to add later.*/
+.connection-card {
+	float: left;
+    background-color: white;
+    width: 317px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 1px
+}
+
+.connection-body-left {
+    float: left;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    overflow: hidden
+}
+
+.connection-body-left img {
+    width: 150px;
+    height: 150px
+}
+
+.connection-body-right {
+    float: left;
+    padding: 10px 0;
+    width: 167px;
+    overflow: hidden;
+    height: 130px;
+    word-wrap: break-word
+}
+
+.connection-body-right>* {
+    margin: 0 10px
+}
