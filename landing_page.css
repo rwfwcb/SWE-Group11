@@ -1,0 +1,23 @@
+body {
+    background-color: #D3D3D3;
+}
+
+.post-box {
+    padding: 4;
+    background-color: darkgray;
+}
+
+.inner-post-box {
+    padding: 2em;
+}
+
+.col-lg-4{
+     padding: 4;
+    background-color: darkgray;
+}
+
+.people-inf{
+    padding: 8px;
+    margin-bottom: 10px;
+     background-color: #DDDDDD;
+}
