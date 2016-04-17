@@ -23,9 +23,9 @@
 		exit;
 	}
 
-		require "db.conf";
+    require "db.conf";
 
-	  $email = empty($_POST['username']) ? '' : $_POST['username'];
+    $email = empty($_POST['username']) ? '' : $_POST['username'];
     $password = empty($_POST['password']) ? '' : $_POST['password'];
 
 		if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
@@ -37,8 +37,15 @@
 					mysqli_stmt_fetch($stmt);
 					if (password_verify($password, $hashpass)){
 						echo "<script type='text/javascript'>alert('Login successful!')</script>";
+                        $_SESSION['loggedin'] = $email;
+                        header("Location: index.php?id=profile");
 						//die(header("Location: index.php"));
-					} else { echo "<script type='text/javascript'>alert('Login failed.  Please enter your username and password.')</script>"; }
+					}
+                    else {
+                        echo "<script type='text/javascript'>alert('Login failed.  Please enter your username and password.')</script>";
+                        $error = "Username or password incorrect.";
+                        header("index.php?id=login");
+                    }
 				} else { echo "<script type='text/javascript'>alert('Failed to execute mySQL statement.')</script>"; }
 			} else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
 		} else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }

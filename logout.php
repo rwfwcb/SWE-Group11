@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php
 	if(!session_start()) {		
 		$errorMessage = "Unable to start session.";
@@ -17,6 +16,6 @@
 	}
 	session_destroy();
 	
-	header("Location: index-dale.php");
+	header("Location: index.php");
 	exit;
 ?>
