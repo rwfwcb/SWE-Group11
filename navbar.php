@@ -46,7 +46,17 @@
 			if($loggedIn)
 			{ ?>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php">Logout</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown" style="padding-top: 5px; padding-bottom: 5px;">
+                        <img src="http://placehold.it/40x40" class="img-circle" style="padding-right: 2px;"> <?php echo $_SESSION['loggedin']; ?> <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="mynetwork.html">My Network</a></li>
+                                    <li><a href="#">Messages</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="logout.php">Logout</a></li>
+                                </ul>
+                </li>
+                <li></li>
             </ul>
         <?php } ?>
     </div><!--/.nav-collapse -->

@@ -40,6 +40,27 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 }
  ?>
 
+<script type="text/javascript">
+        $(document).ready(function () {
+            toggleFields();
+            $("#usertype").change(function () {
+                toggleFields();
+            });
+        });
+        
+        function toggleFields() {
+            if ($("#usertype").val() === "ind") {
+                $("#fngroup").show();
+                $("#lngroup").show();
+                $("#ongroup").hide();
+            }
+            else {
+                $("#ongroup").show();
+                $("#fngroup").hide();
+                $("#lngroup").hide();
+            }
+        }
+</script>
 
 <form class="form-horizontal" action="register.php" method="POST">
 <fieldset>
@@ -48,17 +69,25 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 <legend><h2 class="text-center" style="padding-top: 10px;">Sign up!</h2></legend>
 <div class="container-fluid">
     <!-- Text input-->
-    <div class="form-group">
+    <div class="form-group" id="fngroup">
       <label class="col-md-4 control-label" for="fname">First name</label>  
       <div class="col-md-4">
       <input id="fname" name="fname" placeholder="First name" class="form-control input-md" required type="text">
       </div>
     </div>
     <!-- Text input-->
-    <div class="form-group">
+    <div class="form-group" id="lngroup">
       <label class="col-md-4 control-label" for="lname">Last name</label>  
       <div class="col-md-4">
       <input id="lname" name="lname" placeholder="Last name" class="form-control input-md" required type="text">
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group" id="ongroup" style="display: none;">
+      <label class="col-md-4 control-label" for="orgname">Organization</label>  
+      <div class="col-md-4">
+      <input id="orgname" name="orgname" placeholder="Organization" class="form-control input-md" required type="text">
       </div>
     </div>
 
