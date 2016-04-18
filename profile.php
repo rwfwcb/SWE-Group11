@@ -1,49 +1,135 @@
-<div class="container-fluid" style="padding-top: 10px;">
-    <div class="row">
-        <div class="col-md-5 col-md-offset-1 col-sm-12">
-            <div class="panel panel-info">
-                <div class="panel-heading" style="font-size: 18pt;">Kenny Clark</div>
-                <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-                    <div class="col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1">
-                        <img class="img-responsive img-rounded" src="http://placehold.it/200x200" style="max-height: 200px; max-width: 200px;">
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-md-offset-1 col-sm-offset-1 pull-right">
-                        <div class="panel-body">
-                            <div class="text-muted">[Summary] Pretty cool (tm)</div>
-                            <div class="text-muted">[Location] Columbia, MO</div>
-                            <div class="text-muted">[Languages] Python</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5 col-sm-12">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="font-size: 18pt;">Recent connections</div>
-                <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-                    <div class="col-md-10 col-md-offset-1">
-                        WIP
-                        <br />
-                        WIP
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-10 col-sm-12 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="font-size: 18pt;">News Feed</div>
-                <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-                    <div class="col-md-10 col-md-offset-1">
-                        WIP
-                        <br />
-                        WIP
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<?php
+/* start the session */
+session_start();
+
+/* make sure user is logged in and session variable is set*/
+if(!isset($_SESSION['id'])) {
+	header("Location: index.php?id=login-form");
+}
+
+/* require credentials! */
+require "db.conf";
+
+/* connect to database */
+$link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+/* check connection */
+if (!$link){
+		printf("Connect failed: %s\n", mysqli_connect_error());
+}
+
+/* run prepared queries to get user info */
+	/* create a prepared statement */
+		if($stmt = mysqli_prepare($link, "SELECT firstName, lastName, languages, summary FROM Person WHERE id=?")){
+		/* bind variables to marker */
+		mysqli_stmt_bind_param($stmt, 's', $_SESSION['id']);
+		/* execute query */
+		mysqli_stmt_execute($stmt);
+		/* store result */
+		mysqli_stmt_store_result($stmt);
+		/* bind result variables */
+		mysqli_stmt_bind_result($stmt, $firstName, $lastName, $langauges, $summary);
+    /* get results */
+    mysqli_stmt_fetch($stmt);
+    /* close prepared statement */
+    mysqli_stmt_close($stmt);
+  } else echo "Prepared statement 1 failed.";
+
+echo "<div class='container-fluid' style='padding-top: 10px;'>";
+echo "<div class='row'>";
+echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
+echo "<div class='panel panel-info'>";
+echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName . ' ' . $lastName</div>";
+echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
+echo "<div class='col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1'>";
+echo "<img class='img-responsive img-rounded' src='http://placehold.it/200x200' style='max-height: 200px; max-width: 200px;'>";
+echo "</div>";
+echo "<div class='col-md-6 col-sm-6 col-md-offset-1 col-sm-offset-1 pull-right'>";
+echo "<div class='panel-body'>";
+echo "<div class='text-muted'>$summary</div>";
+echo "<div class='text-muted'>[Location] Columbia, MO</div>";
+echo "<div class='text-muted'>$languages</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "<div class='col-md-5 col-sm-12'>";
+echo "<div class='panel panel-default'>";
+echo "<div class='panel-heading' style='font-size: 18pt;'>Recent connections</div>";
+echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
+echo "<div class='col-md-10 col-md-offset-1'>";
+
+/* run prepared queries to get users recent connections*/
+	/* create a prepared statement */
+		if($stmt = mysqli_prepare($link, "SELECT * FROM PersonConnection WHERE id1=? LIMIT 4")){
+		/* bind variables to marker */
+		mysqli_stmt_bind_param($stmt, 's', $_SESSION['id']);
+		/* execute query */
+		mysqli_stmt_execute($stmt);
+		/* store result */
+		mysqli_stmt_store_result($stmt);
+		/* bind result variables */
+		mysqli_stmt_bind_result($stmt, $id1, $id2, $since);
+		/* fetch results row by row */
+		while (mysqli_stmt_fetch($stmt)){ /* print output */
+			/* create a prepared statement */
+			if ($stmt2 = mysqli_prepare($link, "SELECT firstName, lastName FROM Person WHERE id=?")){
+				/* bind variables to marker */
+				mysqli_stmt_bind_param($stmt2, 's', $id2);
+				/* execute query */
+				mysqli_stmt_execute($stmt2);
+				/* store result */
+				mysqli_stmt_store_result($stmt2);
+				/* bind result variables */
+				mysqli_stmt_bind_result($stmt2, $firstName, $lastName);
+				/* print output for each result returned */
+				while (mysqli_stmt_fetch($stmt2)){
+				echo "$firstName . ' ' . $lastName<br>";
+				}
+				mysqli_stmt_close($stmt2);
+			} else echo "Prepared statement 3 failed.";
+		}
+		mysqli_stmt_close($stmt);
+	} else echo "Prepared statement 2 failed.";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "<div class='row'>";
+echo "<div class='col-md-10 col-sm-12 col-md-offset-1'>";
+echo "<div class='panel panel-default'>";
+echo "<div class='panel-heading' style='font-size: 18pt;'>News Feed</div>";
+echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
+echo "<div class='col-md-10 col-md-offset-1'>";
+
+/* run prepared queries to get user wallposts */
+	/* create a prepared statement */
+		if($stmt3 = mysqli_prepare($link, "SELECT postTime, body FROM Wallpost WHERE id=?")){
+		/* bind variables to marker */
+		mysqli_stmt_bind_param($stmt3, 's', $_SESSION['id']);
+		/* execute query */
+		mysqli_stmt_execute($stmt3);
+		/* store result */
+		mysqli_stmt_store_result($stmt3);
+		/* bind result variables */
+		mysqli_stmt_bind_result($stmt3, $postTime, $body);
+    /* get results */
+    while (mysqli_stmt_fetch($stmt3)){
+      echo "$postTime";
+      echo "$body";
+      echo "<hr>";
+    }
+    /* close prepared statement */
+    mysqli_stmt_close($stmt3);
+  } else echo "Prepared statement 4 failed.";
+
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+
+?>
