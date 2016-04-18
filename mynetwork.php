@@ -66,18 +66,18 @@ if (!$link){
 				mysqli_stmt_bind_result($stmt2, $id, $email, $hashpass, $picture, $memberSince, $firstName, $lastName, $languages, $summary);
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
-					<li class = "list-card">
-						<div class="connection-card">
-							<div class="connection-body-left">
-								<img src="$picture" alt="User Picture">
-							</div>
-							<div class="connection-body-right">
-								<p class="connection-name">$firstName . " " . $lastName</p>
-								<span></span>
-								<p class="connection-basicinfo">$summary</p>
-							</div>
-						</div>
-					</li>
+					echo "<li class = 'list-card'>";
+					echo "<div class='connection-card'>";
+					echo "<div class='connection-body-left'>";
+					echo "<img src='$picture' alt='User Picture'>";
+					echo "</div>";
+					echo "<div class='connection-body-right'>";
+					echo "<p class='connection-name'>$firstName . ' ' . $lastName</p>";
+					echo "<span></span>";
+					echo "<p class='connection-basicinfo'>$summary</p>";
+					echo "</div>";
+					echo "</div>";
+					echo "</li>";
 				}
 				mysqli_stmt_close($stmt2);
 			}
