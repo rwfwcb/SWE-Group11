@@ -28,7 +28,7 @@ if (!$link){
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $firstName, $lastName, $langauges, $summary);
+		mysqli_stmt_bind_result($stmt, $firstName, $lastName, $languages, $summary);
     /* get results */
     mysqli_stmt_fetch($stmt);
     /* close prepared statement */
@@ -47,7 +47,7 @@ echo "</div>";
 echo "<div class='col-md-6 col-sm-6 col-md-offset-1 col-sm-offset-1 pull-right'>";
 echo "<div class='panel-body'>";
 echo "<div class='text-muted'>$summary</div>";
-echo "<div class='text-muted'>[Location] Columbia, MO</div>";
+echo "<div class='text-muted'>Columbia, MO</div>";
 echo "<div class='text-muted'>$languages</div>";
 echo "</div>";
 echo "</div>";
