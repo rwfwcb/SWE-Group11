@@ -44,7 +44,7 @@
                     else {
                         echo "<script type='text/javascript'>alert('Login failed.  Please enter your username and password.')</script>";
                         $error = "Username or password incorrect.";
-                        header("index.php?id=login");
+                        header("index.php?id=login-form");
                     }
 				} else { echo "<script type='text/javascript'>alert('Failed to execute mySQL statement.')</script>"; }
 			} else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
