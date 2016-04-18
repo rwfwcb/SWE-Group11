@@ -32,7 +32,7 @@
             <ul class="nav navbar-right">
                 <form class="navbar-form" role="form" action="login.php" method="POST">
                     <div class="form-group">
-                        <input type="text" id="username" name="username" placeholder="Email" value="" required autofocus class="form-control">
+                        <input type="email" id="username" name="username" placeholder="Email" value="" required autofocus class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="" required>
