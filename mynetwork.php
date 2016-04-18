@@ -51,7 +51,7 @@ if (!$link){
 		mysqli_stmt_store_result($stmt);
 		printf("You have %d connections.<br>", mysqli_stmt_num_rows($stmt));
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id1, $id2);
+		mysqli_stmt_bind_result($stmt, $id1, $id2, $since);
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
 			/* create a prepared statement */
