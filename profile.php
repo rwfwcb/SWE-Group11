@@ -10,7 +10,8 @@
                     <div class="col-md-6 col-sm-6 col-md-offset-1 col-sm-offset-1 pull-right">
                         <div class="panel-body">
                             <div class="text-muted">[Summary] Pretty cool (tm)</div>
-                            <div 
+                            <div class="text-muted">[Location] Columbia, MO</div>
+                            <div class="text-muted">[Languages] Python</div>
                         </div>
                     </div>
                 </div>

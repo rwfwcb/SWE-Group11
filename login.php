@@ -38,6 +38,7 @@
 					if (password_verify($password, $hashpass)){
 						echo "<script type='text/javascript'>alert('Login successful!')</script>";
                         $_SESSION['loggedin'] = $email;
+                        $_SESSION['error'] = false;
                         header("Location: index.php?id=profile");
 						//die(header("Location: index.php"));
 					}
