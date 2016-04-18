@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 
-<?php if ($_SESSION['error']) {
+<?php if (isset($_SESSION['error'])) {
     echo("<div class=\"container-fluid\">");
     echo("<p style=\"margin-bottom: 0px; margin-top: 10px;\" id=\"error\" class=\"danger text-danger\">" . $error . "</p>");
     echo("</div>");
