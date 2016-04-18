@@ -39,7 +39,7 @@ echo "<div class='container-fluid' style='padding-top: 10px;'>";
 echo "<div class='row'>";
 echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
 echo "<div class='panel panel-info'>";
-echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName . ' ' . $lastName</div>";
+echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1'>";
 echo "<img class='img-responsive img-rounded' src='http://placehold.it/200x200' style='max-height: 200px; max-width: 200px;'>";
@@ -85,7 +85,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 				mysqli_stmt_bind_result($stmt2, $firstName, $lastName);
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
-				echo "$firstName . ' ' . $lastName<br>";
+				echo "$firstName $lastName<br>";
 				}
 				mysqli_stmt_close($stmt2);
 			} else echo "Prepared statement 3 failed.";
