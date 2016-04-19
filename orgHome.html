@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<!-- link in Bootstrap and jQuery -->
+<link rel="stylesheet" href="css/app.css">
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/jquery/dist/jquery.min.js"></script>
+</head>
+    <body>        
+        <div class="container">
+            <img id="pic" src=google.png>
+            <button id="followBtn">Follow</button>
+            <div class="info">
+                <h2>Name</h2>
+                <h5>Industry</h5>
+                <h5>Company Size</h5>
+            </div>
+            <br><br><br><br>
+            <div class="choice">
+                <a href="companyHome.html">Home</a>
+                <a href="companyCareers.html">Careers</a>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <h4>About Us</h4>
+                <div class="aboutUs">
+                    <h5>Website</h5>
+                    <p>https://google.com</p>
+                    <h5>Industry</h5>
+                    <p>Internet</p>
+                </div>
+                <div class="aboutUs">
+                    <h5>Company Size</h5>
+                    <p>10,000+</p>
+                    <h5>Founded</h5>
+                    <p>1998</p>
+                </div>
+                <div class="aboutUs">
+                    <h5>Headquarters</h5>
+                    <p>1600 Amphitheatre Parkway Mountain View, CA 94043 United States</p>
+                </div>  
+        </div>
+        <br>
+        <div class="container">
+            <h4 id="update">Share an update...</h4>
+            <form name="shareUpdate" action="#" method="post"></form>
+            <input type="hidden" name="timestamp" value="#">
+            <textarea form="shareUpdate" type=text name="message" rows=4 cols=60></textarea>
+            <input form="shareUpdate" type="submit">
+        </div>
+        <br>
+        <div class="container">
+            <h4>Recent Updates</h4><hr>
+            <p class="wallpost">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam faucibus hendrerit ex, eu auctor lectus consequat vitae. Nam diam ex, scelerisque eget hendrerit sagittis, iaculis ac arcu. Donec</p><hr>
+            <p class="wallpost">Donec a pulvinar est, sodales congue mauris. Nullam eu efficitur sem. Morbi lobortis, tellus at iaculis lacinia, eros sapien varius ante</p><hr>
+            <p class="wallpost">Ut efficitur libero eu quam euismod ultricies. Nam vehicula pellentesque neque eu fringilla. Nunc posuere quis turpis vitae accumsan</p><hr>
+        </div>
+    </body>
+</html>
