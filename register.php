@@ -36,21 +36,21 @@ if(isset($_POST['submit'])) { // Was the form submitted?
     } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
 
 
-  $sql2 = "SELECT id FROM Profile WHERE email='?'";
+  //$sql2 = "SELECT id FROM Profile WHERE email='?'";
   /* create a prepared statement */
-  if ($stmt2 = mysqli_prepare($link, "SELECT id FROM Profile WHERE email='?'")){
+  if ($stmt = mysqli_prepare($link, "SELECT id FROM Profile WHERE email='?'")){
     /* bind variables to marker */
-    if (mysqli_stmt_bind_param($stmt2, 's', $email)){
+    if (mysqli_stmt_bind_param($stmt, 's', $email)){
       /* execute query */
-      if (mysqli_stmt_execute($stmt2)){
+      if (mysqli_stmt_execute($stmt)){
         /* store result */
-        mysqli_stmt_store_result($stmt2);
+        mysqli_stmt_store_result($stmt);
         /* bind result variables */
-        mysqli_stmt_bind_result($stmt2, $id);
+        mysqli_stmt_bind_result($stmt, $id);
         /* get results */
-        mysqli_stmt_fetch($stmt2);
+        mysqli_stmt_fetch($stmt);
         /* close prepared statement */
-        mysqli_stmt_close($stmt2);
+        mysqli_stmt_close($stmt);
     } else echo "<script type='text/javascript'>alert('Unable to retrieve the profile ID.')</script>";
 
 
@@ -110,7 +110,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 <fieldset>
 
 <!-- Form Name -->
-<legend><h2 class="text-center" style="padding-top: 10px;">Sign up!</h2></legend>
+<legend><h2 class="text-center" style="padding-top: 10px;">Sign up!1</h2></legend>
 <div class="container-fluid">
     <!-- Text input-->
     <div class="form-group" id="fngroup">
