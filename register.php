@@ -51,7 +51,8 @@ if(isset($_POST['submit'])) { // Was the form submitted?
         mysqli_stmt_fetch($stmt2);
         /* close prepared statement */
         mysqli_stmt_close($stmt2);
-    } else echo "<script type='text/javascript'>alert('bind_param failed, $email')</script>";
+    } else echo "<script type='text/javascript'>alert('statement 2 failed to execute')</script>";
+
 
       $sql3 = "INSERT INTO Person (id, firstName, lastName) VALUES (?, ?, ?)";
       /* create a prepared statement */
@@ -68,6 +69,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
         } else echo "<script type='text/javascript'>alert('Unable to insert first name / last name.')</script>";;
         mysqli_stmt_close($stmt3);
       } else echo "<script type='text/javascript'>alert('Prepared statement 3 failed.')</script>";
+     } else echo "<script type='text/javascript'>alert('bind_param failed, $email')</script>";
     } else echo "<script type='text/javascript'>alert('Unable to retrieve the profile ID.')</script>";
   } else echo "<script type='text/javascript'>alert('Prepared statement 2 failed.')</script>";
 
