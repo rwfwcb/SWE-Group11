@@ -29,7 +29,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
       mysqli_stmt_bind_param($stmt, "ss", $email, $hpass) or die("bind param");
       if ($pass == $cpass){
         if(mysqli_stmt_execute($stmt)) {
-          echo "<script type='text/javascript'>alert('Profile created!')</script>";
+          Console.log('profile created');
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
       mysqli_stmt_close($stmt);
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
         mysqli_stmt_fetch($stmt2);
         /* close prepared statement */
         mysqli_stmt_close($stmt2);
-    } else echo "<script type='text/javascript'>alert('statement 2 failed to execute')</script>";
+    } else echo "<script type='text/javascript'>alert('Unable to retrieve the profile ID.')</script>";
 
 
       $sql3 = "INSERT INTO Person (id, firstName, lastName) VALUES (?, ?, ?)";
@@ -69,8 +69,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
         } else echo "<script type='text/javascript'>alert('Unable to insert first name / last name.')</script>";;
         mysqli_stmt_close($stmt3);
       } else echo "<script type='text/javascript'>alert('Prepared statement 3 failed.')</script>";
-     } else echo "<script type='text/javascript'>alert('bind_param failed, $email')</script>";
-    } else echo "<script type='text/javascript'>alert('Unable to retrieve the profile ID.')</script>";
+    } else echo "<script type='text/javascript'>alert('bind_param failed, $email')</script>";
   } else echo "<script type='text/javascript'>alert('Prepared statement 2 failed.')</script>";
 
   /* close the connection */
