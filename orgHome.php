@@ -14,7 +14,7 @@ require "db.conf";
 $link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 /* check connection */
-if (!$link)
+if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
 
