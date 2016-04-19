@@ -40,7 +40,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
   /* create a prepared statement */
   if ($stmt2 = mysqli_prepare($link, $sql2)){
     /* bind variables to marker */
-    mysqli_stmt_bind_param($stmt2, "s", $_POST['email']) or die("bind param");
+    mysqli_stmt_bind_param($stmt2, "s", $_POST['email']) or die("bind param 1");
     /* execute query */
     if (mysqli_stmt_execute($stmt2)){
       /* store result */
