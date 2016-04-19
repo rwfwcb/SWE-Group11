@@ -8,7 +8,7 @@ if($_SERVER['HTTPS'] != 'on'){
 session_start();
 
 if(!empty($_SESSION['id'])){
-  header('Location: index.php?id=home')
+  header('Location: index.php?id=home');
 }
 
 if(isset($_POST['submit'])) { // Was the form submitted?
