@@ -40,20 +40,18 @@ if(isset($_POST['submit'])) { // Was the form submitted?
   /* create a prepared statement */
   if ($stmt2 = mysqli_prepare($link, $sql2)){
     /* bind variables to marker */
-    mysqli_stmt_bind_param($stmt2, "s", $email) or die("bind param 1, $email");
-    /* execute query */
-    if (mysqli_stmt_execute($stmt2)){
-      /* store result */
-      mysqli_stmt_store_result($stmt2);
-      /* bind result variables */
-      mysqli_stmt_bind_result($stmt2, $id);
-      /* get results */
-      mysqli_stmt_fetch($stmt2);
-
-      echo "$id";
-
-      /* close prepared statement */
-      mysqli_stmt_close($stmt2);
+    if (mysqli_stmt_bind_param($stmt2, 's', $email)){
+      /* execute query */
+      if (mysqli_stmt_execute($stmt2)){
+        /* store result */
+        mysqli_stmt_store_result($stmt2);
+        /* bind result variables */
+        mysqli_stmt_bind_result($stmt2, $id);
+        /* get results */
+        mysqli_stmt_fetch($stmt2);
+        /* close prepared statement */
+        mysqli_stmt_close($stmt2);
+    } else echo "<script type='text/javascript'>alert('bind_param failed, $email')</script>";
 
       $sql3 = "INSERT INTO Person (id, firstName, lastName) VALUES (?, ?, ?)";
       /* create a prepared statement */
@@ -61,9 +59,6 @@ if(isset($_POST['submit'])) { // Was the form submitted?
         /* bind variables to marker */
         $firstName = $_POST['fname'];
         $lastName = $_POST['lname'];
-
-        echo "$firstName";
-        echo "$lastName";
 
         mysqli_stmt_bind_param($stmt3, "sss", $id, $firstName, $lastName) or die("bind param");
         /* execute query */
