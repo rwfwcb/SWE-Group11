@@ -36,7 +36,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
           continue;
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
-      mysqli_stmt_close($stmt)
+      mysqli_stmt_close($stmt);
     } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
 
 
