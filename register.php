@@ -38,7 +38,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 
   $sql2 = "SELECT id FROM Profile WHERE email='?'";
   /* create a prepared statement */
-  if ($stmt2 = mysqli_prepare($link, $sql2)){
+  if ($stmt2 = mysqli_prepare($link, "SELECT id FROM Profile WHERE email='?'")){
     /* bind variables to marker */
     if (mysqli_stmt_bind_param($stmt2, 's', $email)){
       /* execute query */
