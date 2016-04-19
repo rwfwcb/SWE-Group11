@@ -7,12 +7,8 @@ if($_SERVER['HTTPS'] != 'on'){
 
 session_start();
 
-if(!empty($_SESSION['user'])){
-  if($_SESSION['user_type'] == 'ind'){
-    header('Location: index.php');
-  } else{
-    header('Location: orgHome.html');
-  }
+if(!empty($_SESSION['id'])){
+  header('Location: index.php?id=home')
 }
 
 if(isset($_POST['submit'])) { // Was the form submitted?
@@ -33,7 +29,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
       mysqli_stmt_bind_param($stmt, "ss", $email, $hpass) or die("bind param");
       if ($pass == $cpass){
         if(mysqli_stmt_execute($stmt)) {
-          continue;
+          echo "<script type='text/javascript'>alert('Profile created!')</script>";
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
       mysqli_stmt_close($stmt);
@@ -53,6 +49,9 @@ if(isset($_POST['submit'])) { // Was the form submitted?
       mysqli_stmt_bind_result($stmt2, $id);
       /* get results */
       mysqli_stmt_fetch($stmt2);
+
+      echo "$id";
+
       /* close prepared statement */
       mysqli_stmt_close($stmt2);
 
@@ -62,6 +61,10 @@ if(isset($_POST['submit'])) { // Was the form submitted?
         /* bind variables to marker */
         $firstName = $_POST['fname'];
         $lastName = $_POST['lname'];
+
+        echo "$firstName";
+        echo "$lastName";
+
         mysqli_stmt_bind_param($stmt3, "sss", $id, $firstName, $lastName) or die("bind param");
         /* execute query */
         if (mysqli_stmt_execute($stmt3)){
