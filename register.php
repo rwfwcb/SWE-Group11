@@ -7,76 +7,39 @@ if($_SERVER['HTTPS'] != 'on'){
 
 session_start();
 
-if(!empty($_SESSION['id'])){
-  header('Location: index.php?id=home');
+if(!empty($_SESSION['user'])){
+  if($_SESSION['user_type'] == 'ind'){
+    header('Location: index.php');
+  } else{
+    header('Location: orgHome.html');
+  }
 }
 
 if(isset($_POST['submit'])) { // Was the form submitted?
   if ($_POST['password'] != $_POST['cpassword']){
     echo "<script type='text/javascript'>alert('Password entries do not match.')</script>";
-    header("Location: index.php?id=register");
   }
 
   require "db.conf";
 
   if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
-    $email = $_POST['email'];
     $sql = "INSERT INTO Profile (email, hashpass) VALUES (?,?)";
     if ($stmt = mysqli_prepare($link, $sql)) {
+      $email = $_POST['email'];
       $pass = $_POST['password'];
       $cpass = $_POST['cpassword'];
       $hpass = password_hash($pass, PASSWORD_BCRYPT);
       mysqli_stmt_bind_param($stmt, "ss", $email, $hpass) or die("bind param");
       if ($pass == $cpass){
         if(mysqli_stmt_execute($stmt)) {
-          Console.log('profile created');
+          echo "<script type='text/javascript'>alert('Succesfully registered!')</script>";
+          header("Location: index.php");
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
-      mysqli_stmt_close($stmt);
     } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
-
-
-  //$sql2 = "SELECT id FROM Profile WHERE email='?'";
-  /* create a prepared statement */
-  if ($stmt = mysqli_prepare($link, "SELECT id FROM Profile WHERE email='?'")){
-    /* bind variables to marker */
-    if (mysqli_stmt_bind_param($stmt, 's', $email)){
-      /* execute query */
-      if (mysqli_stmt_execute($stmt)){
-        /* store result */
-        mysqli_stmt_store_result($stmt);
-        /* bind result variables */
-        mysqli_stmt_bind_result($stmt, $id);
-        /* get results */
-        mysqli_stmt_fetch($stmt);
-        /* close prepared statement */
-        mysqli_stmt_close($stmt);
-    } else echo "<script type='text/javascript'>alert('Unable to retrieve the profile ID.')</script>";
-
-
-      $sql3 = "INSERT INTO Person (id, firstName, lastName) VALUES (?, ?, ?)";
-      /* create a prepared statement */
-      if ($stmt3 = mysqli_prepare($link, $sql3)){
-        /* bind variables to marker */
-        $firstName = $_POST['fname'];
-        $lastName = $_POST['lname'];
-
-        mysqli_stmt_bind_param($stmt3, "sss", $id, $firstName, $lastName) or die("bind param");
-        /* execute query */
-        if (mysqli_stmt_execute($stmt3)){
-          echo "<script type='text/javascript'>alert('Succesfully registered!')</script>";
-          header("Location: index.php?id=login-form");
-        } else echo "<script type='text/javascript'>alert('Unable to insert first name / last name.')</script>";;
-        mysqli_stmt_close($stmt3);
-      } else echo "<script type='text/javascript'>alert('Prepared statement 3 failed.')</script>";
-    } else echo "<script type='text/javascript'>alert('bind_param failed, $email')</script>";
-  } else echo "<script type='text/javascript'>alert('Prepared statement 2 failed.')</script>";
-
-  /* close the connection */
-  mysqli_close($link);
   } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
 }
-?>
+ ?>
 
 <script type="text/javascript">
         $(document).ready(function () {
@@ -85,7 +48,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
                 toggleFields();
             });
         });
-
+        
         function toggleFields() {
             if ($("#usertype").val() === "ind") {
                 $("#fngroup").show();
@@ -110,26 +73,26 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 <fieldset>
 
 <!-- Form Name -->
-<legend><h2 class="text-center" style="padding-top: 10px;">Sign up!1</h2></legend>
+<legend><h2 class="text-center" style="padding-top: 10px;">Sign up!</h2></legend>
 <div class="container-fluid">
     <!-- Text input-->
     <div class="form-group" id="fngroup">
-      <label class="col-md-4 control-label" for="fname">First name</label>
+      <label class="col-md-4 control-label" for="fname">First name</label>  
       <div class="col-md-4">
       <input id="fname" name="fname" placeholder="First name" class="form-control input-md" type="text">
       </div>
     </div>
     <!-- Text input-->
     <div class="form-group" id="lngroup">
-      <label class="col-md-4 control-label" for="lname">Last name</label>
+      <label class="col-md-4 control-label" for="lname">Last name</label>  
       <div class="col-md-4">
       <input id="lname" name="lname" placeholder="Last name" class="form-control input-md" type="text">
       </div>
     </div>
-
+    
     <!-- Text input-->
     <div class="form-group" id="ongroup" style="display: none;">
-      <label class="col-md-4 control-label" for="orgname">Organization</label>
+      <label class="col-md-4 control-label" for="orgname">Organization</label>  
       <div class="col-md-4">
       <input id="orgname" name="orgname" placeholder="Organization" class="form-control input-md" type="text">
       </div>
@@ -137,7 +100,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="email">Email</label>
+      <label class="col-md-4 control-label" for="email">Email</label>  
       <div class="col-md-4">
       <input id="email" name="email" placeholder="Email address" class="form-control input-md" required type="email">
       </div>
@@ -145,7 +108,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="password">Password</label>
+      <label class="col-md-4 control-label" for="password">Password</label>  
       <div class="col-md-4">
       <input id="password" name="password" placeholder="Password" class="form-control input-md" required type="password">
       </div>
@@ -153,7 +116,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="cpassword">Confirm password</label>
+      <label class="col-md-4 control-label" for="cpassword">Confirm password</label>  
       <div class="col-md-4">
       <input id="cpassword" name="cpassword" placeholder="Confirm password" class="form-control input-md" required type="password">
       </div>
