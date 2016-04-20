@@ -122,7 +122,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 		/* store result */
 		mysqli_stmt_store_result($stmt3);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt3, $postTime, $body);
+		mysqli_stmt_bind_result($stmt3, $firstName, $lastName, $postTime, $body);
     /* get results */
     while (mysqli_stmt_fetch($stmt3)){
 			echo "id1 = $id1 $firstName $lastName $postTime\n";
