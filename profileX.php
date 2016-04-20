@@ -133,7 +133,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 		mysqli_stmt_bind_result($stmt3, $postTime, $body);
     /* get results */
     while (mysqli_stmt_fetch($stmt3)){
-			echo "$firstName $lastName $postTime\n";
+			echo "id2 = $id2 $firstName $lastName $postTime\n";
 			echo "$body";
       echo "<hr>";
     }
