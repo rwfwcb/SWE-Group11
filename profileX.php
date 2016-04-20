@@ -100,7 +100,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
 				echo "$firstName $lastName<br>";
-			} else echo "Stmt fetch failed.";
+			}
 				mysqli_stmt_close($stmt2);
 			} else echo "Prepared statement 3 failed.";
 		}
