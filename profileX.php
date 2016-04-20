@@ -83,7 +83,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id02, $since);
+		mysqli_stmt_bind_result($stmt, $id02);
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
 			/* create a prepared statement */
