@@ -18,11 +18,14 @@ if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
 
+$id1 = $_SESSION['id'];
+$id2 = $_POST['id2'];
+
 /* run prepared queries to get user info */
 	/* create a prepared statement */
 		if($stmt = mysqli_prepare($link, "SELECT firstName, lastName, languages, summary FROM Person WHERE id=?")){
 		/* bind variables to marker */
-		mysqli_stmt_bind_param($stmt, 's', $_SESSION['id']);
+		mysqli_stmt_bind_param($stmt, 's', $id2);
 		/* execute query */
 		mysqli_stmt_execute($stmt);
 		/* store result */
@@ -35,11 +38,20 @@ if (!$link){
     mysqli_stmt_close($stmt);
   } else echo "Prepared statement 1 failed.";
 
+
 echo "<div class='container-fluid' style='padding-top: 10px;'>";
 echo "<div class='row'>";
 echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
 echo "<div class='panel panel-info'>";
 echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName";
+
+echo "<form action='connectionRequest.php' method='POST'>";
+echo "<input type='hidden' name='id1' value='$id1'>";
+echo "<input type='hidden' name='id2' value='$id2'>";
+echo "<button type='submit' class='btn btn-primary' id='followBtn'>Connect</button>";
+echo "</form>";
+echo "</div>";
+
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1'>";
 echo "<img class='img-responsive img-rounded' src='http://placehold.it/200x200' style='max-height: 200px; max-width: 200px;'>";
@@ -54,17 +66,19 @@ echo "</div>";
 echo "</div>";
 echo "</div>";
 echo "</div>";
+
 echo "<div class='col-md-5 col-sm-12'>";
 echo "<div class='panel panel-default'>";
 echo "<div class='panel-heading' style='font-size: 18pt;'>Recent connections</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-10 col-md-offset-1'>";
 
+
 /* run prepared queries to get users recent connections*/
 	/* create a prepared statement */
 		if($stmt = mysqli_prepare($link, "SELECT * FROM PersonConnection WHERE id1=? LIMIT 4")){
 		/* bind variables to marker */
-		mysqli_stmt_bind_param($stmt, 's', $_SESSION['id']);
+		mysqli_stmt_bind_param($stmt, 's', $id1);
 		/* execute query */
 		mysqli_stmt_execute($stmt);
 		/* store result */
@@ -86,12 +100,14 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
 				echo "$firstName $lastName<br>";
-				}
+			} else echo "Stmt fetch failed.";
 				mysqli_stmt_close($stmt2);
 			} else echo "Prepared statement 3 failed.";
 		}
 		mysqli_stmt_close($stmt);
 	} else echo "Prepared statement 2 failed.";
+
+
 echo "</div>";
 echo "</div>";
 echo "</div>";
@@ -108,13 +124,13 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 	/* create a prepared statement */
 		if($stmt3 = mysqli_prepare($link, "SELECT P.firstName, P.lastName, W.postTime, W.body FROM Wallpost W JOIN Person P USING (id) WHERE id=?")){
 		/* bind variables to marker */
-		mysqli_stmt_bind_param($stmt3, 'ssss', $_SESSION['id']);
+		mysqli_stmt_bind_param($stmt3, 's', $id2);
 		/* execute query */
 		mysqli_stmt_execute($stmt3);
 		/* store result */
 		mysqli_stmt_store_result($stmt3);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt3, $firstName, $lastName, $postTime, $body);
+		mysqli_stmt_bind_result($stmt3, $postTime, $body);
     /* get results */
     while (mysqli_stmt_fetch($stmt3)){
 			echo "$firstName $lastName $postTime\n";
