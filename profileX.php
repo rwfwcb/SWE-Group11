@@ -69,28 +69,28 @@ echo "</div>";
 
 echo "<div class='col-md-5 col-sm-12'>";
 echo "<div class='panel panel-default'>";
-echo "<div class='panel-heading' style='font-size: 18pt;'>Recent connections</div>";
+echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName's recent connections</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-10 col-md-offset-1'>";
 
 
 /* run prepared queries to get users recent connections*/
 	/* create a prepared statement */
-		if($stmt = mysqli_prepare($link, "SELECT * FROM PersonConnection WHERE id1=? LIMIT 4")){
+		if($stmt = mysqli_prepare($link, "SELECT id2 FROM PersonConnection WHERE id1=? LIMIT 4")){
 		/* bind variables to marker */
-		mysqli_stmt_bind_param($stmt, 's', $id1);
+		mysqli_stmt_bind_param($stmt, 's', $id2);
 		/* execute query */
 		mysqli_stmt_execute($stmt);
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id1, $id2, $since);
+		mysqli_stmt_bind_result($stmt, $id02, $since);
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
 			/* create a prepared statement */
 			if ($stmt2 = mysqli_prepare($link, "SELECT firstName, lastName FROM Person WHERE id=?")){
 				/* bind variables to marker */
-				mysqli_stmt_bind_param($stmt2, 's', $id2);
+				mysqli_stmt_bind_param($stmt2, 's', $id02);
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
 				/* store result */
