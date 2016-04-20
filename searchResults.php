@@ -19,7 +19,7 @@ if (!$link){
 }
 
 $input = $_POST['input'];
-$sql = "SELECT id, firstName, lastName FROM Person P JOIN Profile Pr USING (id) WHERE firstName LIKE '%?%' OR lastName LIKE '%?%' ";
+$sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE '%?%' OR lastName LIKE '%?%' ";
 
 if ($stmt = mysqli_prepare($link, $sql)){
 	/* bind variables to marker */
@@ -46,5 +46,7 @@ if ($stmt = mysqli_prepare($link, $sql)){
 		echo "</li>";
 	}
 	/* close prepared statement */
+	mysqli_stmt_close($stmt);
+	mysqli_close($link);
 }
 ?>
