@@ -23,8 +23,8 @@ echo "chkpt1 \n";
 mysqli_stmt_close($stmt2);
 mysqli_stmt_reset($stmt2);
 
-$input = $_POST['input'];
-$sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE '%?%' OR lastName LIKE '%?%' ";
+$input = "%" . $_POST['input'] . "%";
+$sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE ? OR lastName LIKE ? ";
 
 if ($stmt2 = mysqli_prepare($link, $sql)){
 	echo "chkpt2 \n";
@@ -59,6 +59,7 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 					//echo "</div>";
 					//echo "</li>";
 					echo "$firstName $lastName \n\n";
+					echo "success!";
 				}
 
 				/* close prepared statement */
