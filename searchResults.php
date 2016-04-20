@@ -29,7 +29,8 @@ $sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE '%?%' OR
 if ($stmt2 = mysqli_prepare($link, $sql)){
 	echo "chkpt2 \n";
 	/* bind variables to marker */
-	echo "$input $input\n";
+	$t = gettype($input);
+	echo "$t $input $t $input\n";
 	if(mysqli_stmt_bind_param($stmt2, "ss", $input, $input)){
 		echo "chkpt3 \n";
 		/* execute query */
