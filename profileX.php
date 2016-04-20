@@ -20,7 +20,7 @@ if (!$link){
 
 $id1 = $_SESSION['id'];
 $id2 = $_POST['id2'];
-
+$id2 = 1;
 /* run prepared queries to get user info */
 	/* create a prepared statement */
 		$stmt = mysqli_prepare($link, "SELECT firstName, lastName, languages, summary FROM Person WHERE id=?");
