@@ -7,17 +7,6 @@ if(!isset($_SESSION['id'])) {
 	header("Location: index.php?id=login-form");
 }
 
-/* require credentials! */
-require "db.conf";
-
-/* connect to database */
-$link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-
-/* check connection */
-if (!$link){
-		printf("Connect failed: %s\n", mysqli_connect_error());
-}
-
 echo "<form action='searchResults.php' method='POST'>";
 echo "<div class='container'>";
 echo "<div class='row'>";
@@ -36,6 +25,5 @@ echo "</div>";
 echo "</div>";
 echo "</div>";
 echo "</form>";
-
 
 ?>
