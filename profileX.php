@@ -34,16 +34,14 @@ $id2 = $_POST['id2'];
 		mysqli_stmt_bind_result($stmt, $firstName, $lastName, $languages, $summary);
     /* get results */
     mysqli_stmt_fetch($stmt);
-    /* close prepared statement */
+		echo "<div class='container-fluid' style='padding-top: 10px;'>";
+		echo "<div class='row'>";
+		echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
+		echo "<div class='panel panel-info'>";
+		echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName";
+		/* close prepared statement */
     mysqli_stmt_close($stmt);
   } else echo "Prepared statement 1 failed.";
-
-
-echo "<div class='container-fluid' style='padding-top: 10px;'>";
-echo "<div class='row'>";
-echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
-echo "<div class='panel panel-info'>";
-echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName";
 
 echo "<form action='connectionRequest.php' method='POST'>";
 echo "<input type='hidden' name='id1' value='$id1'>";
