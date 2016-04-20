@@ -18,11 +18,6 @@ if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
 
-echo "chkpt1 \n";
-
-mysqli_stmt_close($stmt2);
-mysqli_stmt_reset($stmt2);
-
 /* initialize variables */
 $input = "%" . $_POST['input'] . "%";
 $sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE ? OR lastName LIKE ? ";

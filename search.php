@@ -7,7 +7,7 @@ if(!isset($_SESSION['id'])) {
 	header("Location: index.php?id=login-form");
 }
 
-echo "<form action='searchResults.php' method='POST'>";
+echo "<form action='index.php?id=searchResults' method='POST'>";
 echo "<div class='container'>";
 echo "<div class='row'>";
 echo "<div class='col-sm-6 col-sm-offset-3'>";
