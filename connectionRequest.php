@@ -23,6 +23,9 @@ if (!$link){
 $id1 = 1;
 $id2 = 10;
 
+mysqli_stmt_close($stmt4);
+mysqli_stmt_reset($stmt4);
+
 /* create a prepared statement */
 if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)")){
 

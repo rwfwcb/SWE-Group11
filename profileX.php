@@ -20,7 +20,7 @@ if (!$link){
 
 $id1 = $_SESSION['id'];
 $id2 = $_POST['id2'];
-$id2 = 133;
+$id2 = 134;
 
 /* run prepared queries to get user info */
 	/* create a prepared statement */
@@ -44,6 +44,7 @@ $id2 = 133;
 
 		/* close prepared statement */
     mysqli_stmt_close($stmt);
+		mysqli_stmt_reset($stmt);
 
 echo "<form action='connectionRequest.php' method='POST'>";
 echo "<input type='hidden' name='id1' value='$id1'>";
@@ -101,7 +102,9 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 				while (mysqli_stmt_fetch($stmt2)){
 				echo "$firstName $lastName<br>";
 				mysqli_stmt_close($stmt2);
+				mysqli_stmt_reset($stmt2);
 				mysqli_stmt_close($stmt);
+				mysqli_stmt_reset($stmt);
 			}
 			} else echo "Prepared statement 3 failed.";
 		}
@@ -139,6 +142,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
     }
     /* close prepared statement */
     mysqli_stmt_close($stmt3);
+		mysqli_stmt_reset($stmt3);
   } else echo "Prepared statement 4 failed.";
 
 echo "</div>";
