@@ -1,3 +1,10 @@
+<!--
+Robert Fink
+CS4320
+-->
+
+<link rel="stylesheet" href="css/mynetwork.css">
+
 <?php
 /* start the session */
 session_start();
@@ -20,7 +27,7 @@ if (!$link){
 
 /* initialize variables */
 $input = "%" . $_POST['input'] . "%";
-$sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE ? OR lastName LIKE ? ";
+$sql = "SELECT id, firstName, lastName, summary FROM Person WHERE firstName LIKE ? OR lastName LIKE ? ";
 
 /* create a prepared statement for a search query */
 if ($stmt2 = mysqli_prepare($link, $sql)){
@@ -31,9 +38,11 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 			/* store result */
 			mysqli_stmt_store_result($stmt2);
 			/* bind result variables */
-			if (mysqli_stmt_bind_result($stmt2, $id, $firstName, $lastName)){
+			if (mysqli_stmt_bind_result($stmt2, $id, $firstName, $lastName, $summary)){
 				/* fetch results */
 				while (mysqli_stmt_fetch($stmt2)){
+					echo "<div class='container'>";
+					echo "<ul class='networkbox'>";
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
@@ -42,6 +51,7 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 					echo "<div class='connection-body-right'>";
 					echo "<p class='connection-name'>$firstName $lastName</p>";
 					echo "<span></span>";
+					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";
 					echo "</div>";
 					echo "</li>";
