@@ -20,7 +20,7 @@ if (!$link){
 
 $id1 = $_SESSION['id'];
 $id2 = $_POST['id2'];
-$id2 = 130;
+$id2 = 131;
 
 /* run prepared queries to get user info */
 	/* create a prepared statement */
