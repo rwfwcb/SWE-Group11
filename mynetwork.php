@@ -51,7 +51,7 @@ if (!$link){
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
 			/* create a prepared statement */
-			if ($stmt2 = mysqli_prepare($link, "SELECT * FROM Profile JOIN Person USING (id) WHERE id=?")){
+			if ($stmt2 = mysqli_prepare($link, "SELECT $id, $picture, $firstName, $lastName, $summary FROM Profile JOIN Person USING (id) WHERE id=?")){
 				/* bind variables to marker */
 				mysqli_stmt_bind_param($stmt2, 's', $id2);
 				/* execute query */
@@ -59,16 +59,16 @@ if (!$link){
 				/* store result */
 				mysqli_stmt_store_result($stmt2);
 				/* bind result variables */
-				mysqli_stmt_bind_result($stmt2, $id, $email, $hashpass, $picture, $memberSince, $firstName, $lastName, $languages, $summary);
+				mysqli_stmt_bind_result($stmt2, $id, $picture, $firstName, $lastName, $summary);
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
-					echo "<img src='$picture' alt='User Picture'>";
+					echo "<img src='http://placehold.it/200x200' alt='User Picture'>";
 					echo "</div>";
 					echo "<div class='connection-body-right'>";
-					echo "<p class='connection-name'>$firstName . ' ' . $lastName</p>";
+					echo "<p class='connection-name'>$firstName $lastName</p>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";

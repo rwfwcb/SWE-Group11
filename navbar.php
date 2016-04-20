@@ -18,17 +18,6 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
 
-			<div class="col-sm-3 col-md-3">
-        <form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="q">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-        </form>
-    </div>
-		
       <ul class="nav navbar-nav">
         <li
 		<?php
@@ -37,6 +26,19 @@
 		>
 		<a href="index.php">Home</a></li>
       </ul>
+
+
+				<div class="col-sm-3 col-md-3">
+	        <form class="navbar-form" role="search">
+	        <div class="input-group">
+	            <input type="text" class="form-control" placeholder="Search" name="q">
+	            <div class="input-group-btn">
+	                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+	            </div>
+	        </div>
+	        </form>
+	    </div>
+					
         <?php
 			if(!$loggedIn)
 			{ ?>
