@@ -18,8 +18,8 @@ if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
 
-//$id1 = $_POST['id1'];
-//$id2 = $_POST['id2'];
+$id1 = $_POST['id1'];
+$id2 = $_POST['id2'];
 
 
 mysqli_stmt_close($stmt4);
@@ -43,7 +43,7 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)"
 			//echo "<script type='text/javascript'>alert('Connection request sent.')</script>";
 
 		 } else echo "Stmt execute failed.\n";
-	} else echo "stmt4=$stmt4, id1=$_POST['id1'], id2=$_POST['id2'], Bind param failed.\n";
+	} else echo "stmt4= $stmt4, id1=$id1, id2=$id2, Bind param failed.\n";
 } else echo "Prepared statement failed.\n";
 
 
