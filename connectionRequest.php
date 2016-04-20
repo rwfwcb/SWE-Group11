@@ -34,7 +34,7 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)"
 			/* close the prepared statement */
 			mysqli_stmt_close($stmt4);
 
-			//header("Location: index.php?id=profileX");
+			header("Location: index.php?id=profileX");
 
 			//echo "<script type='text/javascript'>alert('Connection request sent.')</script>";
 
