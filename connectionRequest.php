@@ -20,17 +20,16 @@ if (!$link){
 
 //$id1 = $_POST['id1'];
 //$id2 = $_POST['id2'];
-$id1 = 1;
-$id2 = 10;
+
 
 mysqli_stmt_close($stmt4);
 mysqli_stmt_reset($stmt4);
 
 /* create a prepared statement */
-if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)")){
+if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)")) {
 
 	/* bind paramaters to prepared statement */
-	if (mysqli_stmt_bind_param($stmt4, $id1, $id2)){
+	if (mysqli_stmt_bind_param($stmt4, $_POST['id1'], $_POST['id2'])) {
 
 		/* execute the query */
 		if (mysqli_stmt_execute($stmt4)) {
