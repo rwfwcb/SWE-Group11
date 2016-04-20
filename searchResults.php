@@ -20,6 +20,9 @@ if (!$link){
 
 echo "chkpt1 \n";
 
+mysqli_stmt_close($stmt2);
+mysqli_stmt_reset($stmt2);
+
 $input = $_POST['input'];
 $sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE '%?%' OR lastName LIKE '%?%' ";
 
@@ -27,7 +30,7 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 	echo "chkpt2 \n";
 	/* bind variables to marker */
 	echo "$input $input\n";
-	if(mysqli_stmt_bind_param($stmt2, 'ss', $input, $input)){
+	if(mysqli_stmt_bind_param($stmt2, "ss", $input, $input)){
 		echo "chkpt3 \n";
 		/* execute query */
 		if (mysqli_stmt_execute($stmt2)){
