@@ -18,6 +18,11 @@ if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
 
+echo "chkpt1 \n";
+
+mysqli_stmt_close($stmt2);
+mysqli_stmt_reset($stmt2);
+
 /* initialize variables */
 $input = "%" . $_POST['input'] . "%";
 $sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE ? OR lastName LIKE ? ";
@@ -25,8 +30,6 @@ $sql = "SELECT id, firstName, lastName FROM Person WHERE firstName LIKE ? OR las
 /* create a prepared statement for a search query */
 if ($stmt2 = mysqli_prepare($link, $sql)){
 	/* bind variables to marker */
-	$t = gettype($input);
-	echo "$t $input $t $input\n";
 	if(mysqli_stmt_bind_param($stmt2, "ss", $input, $input)){
 		/* execute query */
 		if (mysqli_stmt_execute($stmt2)){
@@ -36,11 +39,10 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 			if (mysqli_stmt_bind_result($stmt2, $id, $firstName, $lastName)){
 				/* fetch results */
 				while (mysqli_stmt_fetch($stmt2)){
-					echo "chkpt7 \n";
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
-					echo "<img src='$picture' alt='User Picture'>";
+					//echo "<img src='$picture' alt='User Picture'>";
 					echo "</div>";
 					echo "<div class='connection-body-right'>";
 					echo "<p class='connection-name'>$firstName $lastName</p>";
