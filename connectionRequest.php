@@ -35,7 +35,7 @@ if ($stmt = mysqli_prepare($link, "INSERT INTO ConnectionRequest (id1, id2) VALU
 
 			echo "<script type='text/javascript'>alert('Connection request sent.')</script>";
 
-			header("Location: index.php?id=profile");
+			//header("Location: index.php?id=profile");
 
 		// } else echo "Stmt execute failed.\n";
 	//} else echo "id1=$id1, id2=$id2, Bind param failed.\n";

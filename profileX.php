@@ -20,7 +20,7 @@ if (!$link){
 
 $id1 = $_SESSION['id'];
 $id2 = $_POST['id2'];
-$id2 = 10;
+$id2 = 15;
 /* run prepared queries to get user info */
 	/* create a prepared statement */
 		$stmt = mysqli_prepare($link, "SELECT firstName, lastName, languages, summary FROM Person WHERE id=?");
@@ -99,11 +99,11 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
 				echo "$firstName $lastName<br>";
-			}
 				mysqli_stmt_close($stmt2);
+				mysqli_stmt_close($stmt);
+			}
 			} else echo "Prepared statement 3 failed.";
 		}
-		mysqli_stmt_close($stmt);
 	} else echo "Prepared statement 2 failed.";
 
 
