@@ -25,7 +25,8 @@
 				class="active" <?php } ?>
 		>
 		<a href="index.php">Home</a></li>
-      </ul>
+		<li><a href="index.php?id=profile">Profile</a></li>
+			</ul>
 
 			<div class="col-sm-3 col-md-3 col-centered row-centered nav navbar-nav">
 				<form action='index.php?id=searchResults' method='POST' class="navbar-form" role="search">
