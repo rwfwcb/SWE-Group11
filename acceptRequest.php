@@ -27,7 +27,7 @@ mysqli_stmt_close($stmt4);
 mysqli_stmt_reset($stmt4);
 
 /* create a prepared statement */
-if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, since) VALUES (?, ?, ?")) {
+if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, since) VALUES (?, ?, '?'")) {
 	/* bind paramaters to prepared statement */
 	if (mysqli_stmt_bind_param($stmt4, 'dds', $id1, $id2, $stamp)){
 		/* execute the query */
@@ -39,7 +39,7 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, sinc
 } else echo "Prepared statement failed.\n";
 
 /* create a prepared statement */
-if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, since) VALUES (?, ?, ?")) {
+if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, since) VALUES (?, ?, '?'")) {
 	/* bind paramaters to prepared statement */
 	if (mysqli_stmt_bind_param($stmt4, 'dds', $id2, $id1, $stamp)) {
 		/* execute the query */
