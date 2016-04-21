@@ -49,7 +49,7 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 					//echo "<img src='$picture' alt='User Picture'>";
 					echo "</div>";
 					echo "<div class='connection-body-right'>";
-					echo "<form action='index.php?id=profileX method='POST'>";
+					echo "<form action='index.php?id=profileX' method='POST'>";
 					echo "<input type='hidden' name='user' value='$id'>";
 					echo "<button type='submit' class='connection-name btn btn-link'>$firstName $lastName</button>";
 					echo "</form>";
