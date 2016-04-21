@@ -39,7 +39,7 @@ $id1 = $_SESSION['id'];
 
 /* run prepared queries to get user info */
 	/* create a prepared statement */
-		if($stmt = mysqli_prepare($link, "SELECT id1, id2 FROM PersonConnection WHERE id2 = ?")){
+		if($stmt = mysqli_prepare($link, "SELECT id1, id2 FROM ConnectionRequest WHERE id2 = ?")){
 		/* bind variables to marker */
 		mysqli_stmt_bind_param($stmt, 's', $id1);
 		/* execute query */
