@@ -21,6 +21,9 @@ if (!$link){
 $id1 = $_SESSION['id'];
 $id2 = $_POST['user'];
 
+echo "$id1\n";
+echo "$id2\n";
+
 /* close prepared statement */
 mysqli_stmt_close($stmt4);
 mysqli_stmt_reset($stmt4);
