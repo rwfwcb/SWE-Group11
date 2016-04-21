@@ -65,7 +65,7 @@ if (!$link){
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
-					echo "<img src='http://placehold.it/200x200' alt='User Picture'>";
+					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
 					echo "</div>";
 					echo "<div class='connection-body-right'>";
 					echo "<p class='connection-name'>$firstName $lastName</p>";
