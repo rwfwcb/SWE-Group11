@@ -51,7 +51,7 @@ $id1 = $_SESSION['id'];
 	  /* get results */
 	  while (mysqli_stmt_fetch($stmt)){
 			/* create a prepared statement */
-			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName FROM Profile JOIN Person USING (id) WHERE id=?")){
+			if ($stmt2 = mysqli_prepare($link, "SELECT P.id, Pe.picture, P.firstName, P.lastName FROM Profile P JOIN Person Pe USING (id) WHERE id=?")){
 				/* bind variables to marker */
 				mysqli_stmt_bind_param($stmt2, 's', $id1);
 				/* execute query */
