@@ -64,8 +64,9 @@ $id1 = $_SESSION['id'];
  				echo "<div class='container'>";
 				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
+					echo "<div class='inlineDashedRequest'>";
 					echo "<li class = 'list-card'>";
-					echo "<div class='connection-card inlineDashedRequest'>";
+					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
 					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
 					echo "</div>";
@@ -76,24 +77,22 @@ $id1 = $_SESSION['id'];
 					echo "</form>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
+					echo "<form class='acceptIgnore' action='index.php?id=acceptRequest' method='POST'>";
+					echo "<input type='hidden' name='user' value='$id2'>";
+					echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
+					echo "</form>";
+					echo "<form class='acceptIgnore' action='index.php?id=ignoreRequest' method='POST'>";
+					echo "<input type='hidden' name='user' value='$id2'>";
+					echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
+					echo "</form>";
 					echo "</div>";
 					echo "</div>";
 					echo "</li>";
+					echo "</div>";
 				}
 				echo "</ul>";
-				echo "<form class='acceptIgnore' action='index.php?id=acceptRequest' method='POST'>";
-				echo "<input type='hidden' name='user' value='$id2'>";
-				echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
-				echo "</form>";
-				echo "<form class='acceptIgnore' action='index.php?id=ignoreRequest' method='POST'>";
-				echo "<input type='hidden' name='user' value='$id2'>";
-				echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
-				echo "</form>";
 				echo "</div>";
-
 			//echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
-
-
 
 		} else echo "Prepared statement 2 failed.";
 	}
