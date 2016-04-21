@@ -43,10 +43,10 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 			mysqli_stmt_store_result($stmt2);
 			/* bind result variables */
 			if (mysqli_stmt_bind_result($stmt2, $id, $firstName, $lastName, $summary)){
+				echo "<div class='container'>";
+				echo "<ul class='networkbox'>";
 				/* fetch results */
 				while (mysqli_stmt_fetch($stmt2)){
-					echo "<div class='container'>";
-					echo "<ul class='networkbox'>";
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
@@ -63,6 +63,8 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 					echo "</div>";
 					echo "</li>";
 				}
+				echo "</ul>";
+				echo "</div>";
 				/* close prepared statement */
 				mysqli_stmt_close($stmt2);
 				mysqli_close($link);
