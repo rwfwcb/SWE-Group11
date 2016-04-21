@@ -46,7 +46,7 @@ $id2 = $_POST['user'];
     mysqli_stmt_close($stmt);
 		mysqli_stmt_reset($stmt);
 
-echo "<form action='connectionRequest.php' method='POST'>";
+echo "<form action='index.php?id=connectionRequest' method='POST'>";
 echo "<input type='hidden' name='id1' value='$id1'>";
 echo "<input type='hidden' name='id2' value='$id2'>";
 echo "<button type='submit' class='btn btn-primary' id='followBtn'>Connect</button>";

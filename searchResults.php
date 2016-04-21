@@ -57,7 +57,6 @@ if ($stmt2 = mysqli_prepare($link, $sql)){
 					echo "<input type='hidden' name='user' value='$id'>";
 					echo "<button type='submit' class='connection-name btn btn-link'>$firstName $lastName</button>";
 					echo "</form>";
-					//echo "<p class='connection-name'>$firstName $lastName</p>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";
