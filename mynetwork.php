@@ -50,8 +50,9 @@ if (!$link){
 				mysqli_stmt_store_result($stmt2);
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id, $picture, $firstName, $lastName, $summary);
-				echo "<ul class='networkbox'>";
+
 				/* print output for each result returned */
+				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";

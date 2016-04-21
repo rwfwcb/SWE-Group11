@@ -51,21 +51,38 @@ $id1 = $_SESSION['id'];
 	  /* get results */
 	  while (mysqli_stmt_fetch($stmt)){
 			/* create a prepared statement */
-			echo "check1";
 			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName FROM Profile JOIN Person USING (id) WHERE id=?")){
 				/* bind variables to marker */
 				mysqli_stmt_bind_param($stmt2, 's', $id01);
-				echo "check2";
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
-				echo "check3";
 				/* store result */
 				mysqli_stmt_store_result($stmt2);
-				echo "check4";
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id2, $picture, $fName, $lName);
-				echo "check5";
 				/* print output for each result returned */
+ 				echo "<div class='container'>";
+				echo "<ul class='networkbox'>";
+				while (mysqli_stmt_fetch($stmt2)){
+					echo "<li class = 'list-card'>";
+					echo "<div class='connection-card'>";
+					echo "<div class='connection-body-left'>";
+					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
+					echo "</div>";
+					echo "<div class='connection-body-right'>";
+					echo "<form action='index.php?id=profileX' method='POST'>";
+					echo "<input type='hidden' name='user' value='$id2'>";
+					echo "<button type='submit' class='connection-name btn btn-link'>$fName $lName</button>";
+					echo "</form>";
+					echo "<span></span>";
+					echo "<p class='connection-basicinfo'>$summary</p>";
+					echo "</div>";
+					echo "</div>";
+					echo "</li>";
+				}
+				echo "</ul>";
+				echo "</div>";
+		/*
 			echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
 			echo "<form action='index.php?id=acceptRequest' method='POST'>";
 			echo "<input type='hidden' name='user' value='$id2'>";
@@ -75,6 +92,8 @@ $id1 = $_SESSION['id'];
 			echo "<input type='hidden' name='user' value='$id2'>";
 			echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
 			echo "</form>";
+		*/
+
 		} else echo "Prepared statement 2 failed.";
 	}
 	  /* close prepared statement */
