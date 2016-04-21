@@ -27,9 +27,9 @@ mysqli_stmt_close($stmt4);
 mysqli_stmt_reset($stmt4);
 
 /* create a prepared statement */
-if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, since) VALUES (?, ?, '?'")) {
+if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection VALUES (?, ?")) {
 	/* bind paramaters to prepared statement */
-	if (mysqli_stmt_bind_param($stmt4, 'dds', $id1, $id2, $stamp)){
+	if (mysqli_stmt_bind_param($stmt4, 'dd', $id1, $id2)){
 		/* execute the query */
 		if (mysqli_stmt_execute($stmt4)) {
 			/* close the prepared statement */
@@ -39,9 +39,9 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, sinc
 } else echo "Prepared statement failed.\n";
 
 /* create a prepared statement */
-if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection (id1, id2, since) VALUES (?, ?, '?'")) {
+if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection VALUES (?, ?)") {
 	/* bind paramaters to prepared statement */
-	if (mysqli_stmt_bind_param($stmt4, 'dds', $id2, $id1, $stamp)) {
+	if (mysqli_stmt_bind_param($stmt4, 'dd', $id2, $id1)) {
 		/* execute the query */
 		if (mysqli_stmt_execute($stmt4)) {
 			/* close the prepared statement */
