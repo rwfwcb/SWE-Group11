@@ -81,17 +81,18 @@ $id1 = $_SESSION['id'];
 					echo "</li>";
 				}
 				echo "</ul>";
+				echo "<form class='acceptIgnore' action='index.php?id=acceptRequest' method='POST'>";
+				echo "<input type='hidden' name='user' value='$id2'>";
+				echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
+				echo "</form>";
+				echo "<form class='acceptIgnore' action='index.php?id=ignoreRequest' method='POST'>";
+				echo "<input type='hidden' name='user' value='$id2'>";
+				echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
+				echo "</form>";
 				echo "</div>";
 
 			//echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
-			echo "<form class='acceptIgnore' action='index.php?id=acceptRequest' method='POST'>";
-			echo "<input type='hidden' name='user' value='$id2'>";
-			echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
-			echo "</form>";
-			echo "<form class='acceptIgnore' action='index.php?id=ignoreRequest' method='POST'>";
-			echo "<input type='hidden' name='user' value='$id2'>";
-			echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
-			echo "</form>";
+
 
 
 		} else echo "Prepared statement 2 failed.";
