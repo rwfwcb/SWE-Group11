@@ -47,19 +47,24 @@ $id1 = $_SESSION['id'];
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id1);
+		mysqli_stmt_bind_result($stmt, $id01);
 	  /* get results */
 	  while (mysqli_stmt_fetch($stmt)){
 			/* create a prepared statement */
-			if ($stmt2 = mysqli_prepare($link, "SELECT P.id, Pe.picture, P.firstName, P.lastName FROM Profile P JOIN Person Pe USING (id) WHERE id=?")){
+			echo "check1";
+			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName FROM Profile JOIN Person USING (id) WHERE id=?")){
 				/* bind variables to marker */
-				mysqli_stmt_bind_param($stmt2, 's', $id1);
+				mysqli_stmt_bind_param($stmt2, 's', $id01);
+				echo "check2";
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
+				echo "check3";
 				/* store result */
 				mysqli_stmt_store_result($stmt2);
+				echo "check4";
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id2, $picture, $fName, $lName);
+				echo "check5";
 				/* print output for each result returned */
 			echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
 			echo "<form action='index.php?id=acceptRequest' method='POST'>";
