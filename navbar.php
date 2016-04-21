@@ -27,7 +27,7 @@
 		<a href="index.php">Home</a></li>
       </ul>
 
-			<div id='searchBar' class="col-sm-3 col-md-3 nav navbar-nav">
+			<div id='searchBar' class="col-sm-3 col-md-3 col-centered row-centered nav navbar-nav">
 				<form class="navbar-form" role="search">
 				<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="q">
