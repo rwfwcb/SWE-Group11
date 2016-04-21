@@ -36,10 +36,13 @@ if (!$link){
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		printf("You have %d connections.<br>", mysqli_stmt_num_rows($stmt));
+		echo "check00";
 		/* bind result variables */
 		mysqli_stmt_bind_result($stmt, $id1, $id2);
+		echo "check0";
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
+			echo "check01";
 			/* create a prepared statement */
 			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName, summary FROM Profile JOIN Person USING (id) WHERE id=?")){
 				/* bind variables to marker */
