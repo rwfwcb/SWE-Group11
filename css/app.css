@@ -50,8 +50,8 @@
 }
 .inlineDashedRequest{
   display: inline;
-  outline-style: solid;
-  outline-color: lightsteelblue;
+  border-style: solid;
+  border-color: lightsteelblue;
 }
 
 
