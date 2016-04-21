@@ -18,14 +18,8 @@ if (!$link){
 }
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
-<title>My Network</title>
-<!-- link in Bootstrap and jQuery -->
-<link rel="stylesheet" href="css/app.css">
-<script src="js/bootstrap/bootstrap.min.js"></script>
-<script src="js/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="css/mynetwork.css">
 </head>
 <body>
@@ -89,5 +83,5 @@ if (!$link){
 		</div>
 	</div>
 </body>
-<!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment.
+<!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment. -->
 </html>
