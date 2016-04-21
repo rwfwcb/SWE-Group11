@@ -19,8 +19,9 @@ if (!$link){
 }
 
 $id1 = $_SESSION['id'];
-$id2 = $_POST['id2'];
-$id2 = 154;
+//$id2 = $_POST['id2'];
+//$id2 = 154;
+$id2 = $_GET['user'];
 
 /* run prepared queries to get user info */
 	/* create a prepared statement */

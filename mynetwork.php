@@ -68,7 +68,10 @@ if (!$link){
 					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
 					echo "</div>";
 					echo "<div class='connection-body-right'>";
-					echo "<p class='connection-name'>$firstName $lastName</p>";
+					echo "<form method='GET' action='index.php?id=profile&user=$id>";
+					echo "<button type='submit' class='connection-name btn btn-link'>$firstName $lastName</button>";
+					echo "</form>";
+					//echo "<p class='connection-name'>$firstName $lastName</p>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";
