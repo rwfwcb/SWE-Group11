@@ -37,7 +37,7 @@ $id1 = $_SESSION['id'];
     mysqli_stmt_close($stmt);
   } else echo "Prepared statement 1 failed.";
 
-/* run prepared queries to get user info */
+/* run prepared queries to see if user has any connection requests */
 	/* create a prepared statement */
 		if($stmt = mysqli_prepare($link, "SELECT id1 FROM ConnectionRequest WHERE id2 = ?")){
 		/* bind variables to marker */
@@ -82,17 +82,17 @@ $id1 = $_SESSION['id'];
 				}
 				echo "</ul>";
 				echo "</div>";
-		/*
-			echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
-			echo "<form action='index.php?id=acceptRequest' method='POST'>";
+
+			//echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
+			echo "<form class='acceptIgnore' action='index.php?id=acceptRequest' method='POST'>";
 			echo "<input type='hidden' name='user' value='$id2'>";
 			echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
 			echo "</form>";
-			echo "<form action='index.php?id=ignoreRequest' method='POST'>";
+			echo "<form class='acceptIgnore' action='index.php?id=ignoreRequest' method='POST'>";
 			echo "<input type='hidden' name='user' value='$id2'>";
 			echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
 			echo "</form>";
-		*/
+
 
 		} else echo "Prepared statement 2 failed.";
 	}
