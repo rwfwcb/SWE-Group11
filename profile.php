@@ -65,7 +65,7 @@ $id1 = $_SESSION['id'];
 				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
 					echo "<li class = 'list-card'>";
-					echo "<div class='connection-card'>";
+					echo "<div class='connection-card box bordered dotted'>";
 					echo "<div class='connection-body-left'>";
 					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
 					echo "</div>";
@@ -140,7 +140,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id01, $id02, $since);
+		mysqli_stmt_bind_result($stmt, $id01, $id02);
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
 			/* create a prepared statement */

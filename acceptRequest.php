@@ -36,9 +36,9 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection VALUES (?, ?)")
 		if (mysqli_stmt_execute($stmt4)) {
 			/* close the prepared statement */
 			mysqli_stmt_close($stmt4);
-		 } else echo "Stmt execute failed.\n";
+		} else echo "Stmt1 execute failed.\n";
 	} else echo "id1=$id1, id2=$id2, Bind param failed.\n";
-} else echo "Prepared statement failed.\n";
+} else echo "Prepared statement1 failed.\n";
 
 /* create a prepared statement */
 if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection VALUES (?, ?)")) {
@@ -50,9 +50,22 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection VALUES (?, ?)")
 			mysqli_stmt_close($stmt4);
 			/* redirect back to the profile page */
 			header("Location: index.php?id=profile");
-		 } else echo "Stmt execute failed.\n";
-	} else echo "id1=$id1, id2=$id2, Bind param failed.\n";
-} else echo "Prepared statement failed.\n";
+		} else echo "Stmt2 execute failed.\n";
+	} else echo "Bind param failed.\n";
+} else echo "Prepared statement2 failed.\n";
+
+/* create a prepared statement */
+if ($stmt4 = mysqli_prepare($link, "DELETE FROM ConnectionRequest WHERE id2=?")) {
+	/* bind paramaters to prepared statement */
+	if (mysqli_stmt_bind_param($stmt4, 'dd', $id1)){
+		/* execute the query */
+		if (mysqli_stmt_execute($stmt4)) {
+			/* close the prepared statement */
+			mysqli_stmt_close($stmt4);
+		} else echo "Stmt3 execute failed.\n";
+	} else echo "Bind param failed.\n";
+} else echo "Prepared statement3 failed.\n";
+
 /* close the connection */
 mysqli_close($link);
 ?>
