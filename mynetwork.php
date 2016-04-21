@@ -18,11 +18,7 @@ if (!$link){
 }
 ?>
 
-<html>
-<head>
 <link rel="stylesheet" href="css/mynetwork.css">
-</head>
-<body>
 	<div class="container">
 		<ul class="networkbox">
 			<div class="network-header">
@@ -82,6 +78,4 @@ if (!$link){
 		</ul>
 		</div>
 	</div>
-</body>
 <!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment. -->
-</html>
