@@ -27,10 +27,10 @@
 		<a href="index.php">Home</a></li>
       </ul>
 
-			<div id='searchBar' class="col-sm-3 col-md-3 col-centered row-centered nav navbar-nav">
-				<form class="navbar-form" role="search">
+			<div class="col-sm-3 col-md-3 col-centered row-centered nav navbar-nav">
+				<form action='index.php?id=searchResults' method='POST' class="navbar-form" role="search">
 				<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search" name="q">
+						<input type="text" class="form-control" placeholder="Search" name="input">
 						<div class="input-group-btn">
 								<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 						</div>
