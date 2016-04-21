@@ -29,6 +29,10 @@ if (!$link){
 $input = "%" . $_POST['input'] . "%";
 $sql = "SELECT id, firstName, lastName, summary FROM Person WHERE firstName LIKE ? OR lastName LIKE ? ";
 
+/* close prepared statement */
+mysqli_stmt_close($stmt2);
+mysqli_stmt_reset($stmt2);
+
 /* create a prepared statement for a search query */
 if ($stmt2 = mysqli_prepare($link, $sql)){
 	/* bind variables to marker */
