@@ -51,7 +51,7 @@ if (!$link){
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
 			/* create a prepared statement */
-			if ($stmt2 = mysqli_prepare($link, "SELECT $id, $picture, $firstName, $lastName, $summary FROM Profile JOIN Person USING (id) WHERE id=?")){
+			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName, summary FROM Profile JOIN Person USING (id) WHERE id=?")){
 				/* bind variables to marker */
 				mysqli_stmt_bind_param($stmt2, 's', $id2);
 				/* execute query */
