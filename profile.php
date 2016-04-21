@@ -39,7 +39,7 @@ $id1 = $_SESSION['id'];
 
 /* run prepared queries to get user info */
 	/* create a prepared statement */
-		if($stmt = mysqli_prepare($link, "SELECT id1, id2 FROM ConnectionRequest WHERE id2 = ?")){
+		if($stmt = mysqli_prepare($link, "SELECT id1 FROM ConnectionRequest WHERE id2 = ?")){
 		/* bind variables to marker */
 		mysqli_stmt_bind_param($stmt, 's', $id1);
 		/* execute query */
@@ -47,16 +47,27 @@ $id1 = $_SESSION['id'];
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id1, $id2);
+		mysqli_stmt_bind_result($stmt, $id1);
 	  /* get results */
 	  while (mysqli_stmt_fetch($stmt)){
+			/* create a prepared statement */
+			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName FROM Profile JOIN Person USING (id) WHERE id=?")){
+				/* bind variables to marker */
+				mysqli_stmt_bind_param($stmt2, 's', $id1);
+				/* execute query */
+				mysqli_stmt_execute($stmt2);
+				/* store result */
+				mysqli_stmt_store_result($stmt2);
+				/* bind result variables */
+				mysqli_stmt_bind_result($stmt2, $id2, $picture, $fName, $lName);
+				/* print output for each result returned */
+			echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
 			echo "<form action='index.php?id=acceptRequest' method='POST'>";
-			echo "<input type='hidden' name='user' value='$id'>";
-			echo "<button type='button' class='connection-name btn btn-link'>$firstName $lastName</button>";
+			echo "<input type='hidden' name='user' value='$id2'>";
 			echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
 			echo "</form>";
 			echo "<form action='index.php?id=ignoreRequest' method='POST'>";
-			echo "<input type='hidden' name='user' value='$id'>";
+			echo "<input type='hidden' name='user' value='$id2'>";
 			echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
 			echo "</form>";
 		}

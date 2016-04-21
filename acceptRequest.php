@@ -20,7 +20,6 @@ if (!$link){
 
 $id1 = $_SESSION['id'];
 $id2 = $_POST['user'];
-$stamp = "now()";
 
 /* close prepared statement */
 mysqli_stmt_close($stmt4);
