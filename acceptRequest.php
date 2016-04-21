@@ -57,7 +57,7 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO PersonConnection VALUES (?, ?)")
 /* create a prepared statement */
 if ($stmt4 = mysqli_prepare($link, "DELETE FROM ConnectionRequest WHERE id1=? AND id2=?")) {
 	/* bind paramaters to prepared statement */
-	if (mysqli_stmt_bind_param($stmt4, 'd', $id2, $id1)){
+	if (mysqli_stmt_bind_param($stmt4, 'd', $id1, $id2)){
 		/* execute the query */
 		if (mysqli_stmt_execute($stmt4)) {
 			/* close the prepared statement */
