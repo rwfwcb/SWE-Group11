@@ -64,8 +64,7 @@ $id1 = $_SESSION['id'];
  				echo "<div class='container'>";
 				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
-					echo "<div class='acceptIgnore inlineDashedRequest'>";
-					echo "<li class = 'list-card'>";
+					echo "<li class = 'acceptIgnore inlineDashedRequest list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
 					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
@@ -88,7 +87,6 @@ $id1 = $_SESSION['id'];
 					echo "</div>";
 					echo "</div>";
 					echo "</li>";
-					echo "</div>";
 				}
 				echo "</ul>";
 				echo "</div>";
