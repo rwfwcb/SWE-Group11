@@ -75,7 +75,7 @@ $id1 = $_SESSION['id'];
 					echo "<button type='submit' class='connection-name btn btn-link'>$fName $lName</button>";
 					echo "</form>";
 					echo "<span></span>";
-					echo "<p class='connection-basicinfo'>$summary</p>";
+					echo "<p class='inline connection-basicinfo'>$summary</p>";
 					echo "<form class='inline' action='index.php?id=acceptRequest' method='POST'>";
 					echo "<input type='hidden' name='user' value='$id2'>";
 					echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
