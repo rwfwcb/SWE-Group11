@@ -20,7 +20,6 @@ if (!$link){
 
 $id1 = $_SESSION['id'];
 $id2 = $_POST['id2'];
-$_SESSION['lastAdd'] = $id2;
 
 /* create a prepared statement */
 if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)")) {
@@ -30,7 +29,11 @@ if ($stmt4 = mysqli_prepare($link, "INSERT INTO ConnectionRequest VALUES (?, ?)"
 
 		/* execute the query */
 		if (mysqli_stmt_execute($stmt4)) {
-			echo "Connection request sent.\n";
+			echo "<h2>Connection request sent</h2>\n";
+			echo "<form action='index.php?id=profileX' method='POST'>";
+			echo "<input type='hidden' name='user' value='$id2'>";
+			echo "<button type='submit' class='btn btn-primary'>Go back</button>";
+			echo "</form>";
 
 			/* close the prepared statement */
 			mysqli_stmt_close($stmt4);
