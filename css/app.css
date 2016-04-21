@@ -45,6 +45,9 @@
     background-color: snow;
     padding: 10px;
 }
+.acceptIgnore{
+  display: inline;
+}
 
 
 html {
