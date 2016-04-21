@@ -70,7 +70,8 @@ $id1 = $_SESSION['id'];
 			echo "<input type='hidden' name='user' value='$id2'>";
 			echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
 			echo "</form>";
-		}
+		} else echo "Prepared statement 2 failed.";
+	}
 	  /* close prepared statement */
 	  mysqli_stmt_close($stmt);
 	} else echo "Prepared statement 1 failed.";
