@@ -72,7 +72,7 @@ $id1 = $_SESSION['id'];
 					echo "<div class='connection-body-right'>";
 					echo "<form action='index.php?id=profileX' method='POST'>";
 					echo "<input type='hidden' name='user' value='$id2'>";
-					echo "<button type='submit' class='connection-name btn btn-link'>$fName $lName</button>";
+					echo "<button type='submit' class='connection-name btn btn-link'>$fName $lName $id2</button>";
 					echo "</form>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
