@@ -7,6 +7,10 @@ if(!isset($_SESSION['id'])) {
 	header("Location: index.php?id=login-form");
 }
 
+if ($_POST['user'] == $_SESSION['lastAdded']){
+	echo "<script type='text/javascript'>alert('Connection request sent.')</script>";
+}
+
 /* require credentials! */
 require "db.conf";
 
@@ -21,6 +25,10 @@ if (!$link){
 /* initialize variables */
 $id1 = $_SESSION['id'];
 $id2 = $_POST['user'];
+
+if ($id2 == NULL || $id2=""){
+	$id2 = $_SESSION['lastAdded'];
+}
 
 /* run prepared queries to get user info */
 	/* create a prepared statement */
