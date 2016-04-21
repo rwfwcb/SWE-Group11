@@ -48,6 +48,11 @@
 .acceptIgnore{
   display: inline;
 }
+.inlineDashedRequest{
+  display: inline;
+  outline-style: dashed;
+  outline-color: lightsteelblue;
+}
 
 
 html {
