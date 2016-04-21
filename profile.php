@@ -37,6 +37,33 @@ $id1 = $_SESSION['id'];
     mysqli_stmt_close($stmt);
   } else echo "Prepared statement 1 failed.";
 
+/* run prepared queries to get user info */
+	/* create a prepared statement */
+		if($stmt = mysqli_prepare($link, "SELECT id1, id2 FROM PersonConnection WHERE id2 = ?")){
+		/* bind variables to marker */
+		mysqli_stmt_bind_param($stmt, 's', $id1);
+		/* execute query */
+		mysqli_stmt_execute($stmt);
+		/* store result */
+		mysqli_stmt_store_result($stmt);
+		/* bind result variables */
+		mysqli_stmt_bind_result($stmt, $id1, $id2);
+	  /* get results */
+	  while (mysqli_stmt_fetch($stmt)){
+			echo "<form action='index.php?id=acceptRequest' method='POST'>";
+			echo "<input type='hidden' name='user' value='$id'>";
+			echo "<button type='button' class='connection-name btn btn-link'>$firstName $lastName</button>";
+			echo "<button type='submit' class='connection-name btn btn-primary'>Accept</button>";
+			echo "</form>";
+			echo "<form action='index.php?id=ignoreRequest' method='POST'>";
+			echo "<input type='hidden' name='user' value='$id'>";
+			echo "<button type='submit' class='connection-name btn btn-secondary'>Ignore</button>";
+			echo "</form>";
+		}
+	  /* close prepared statement */
+	  mysqli_stmt_close($stmt);
+	} else echo "Prepared statement 1 failed.";
+
 
 echo "<div class='container-fluid' style='padding-top: 10px;'>";
 echo "<div class='row'>";
