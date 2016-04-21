@@ -48,6 +48,9 @@
 .inline{
   display: inline;
 }
+.acceptIgnore{
+  padding: 5px;
+}
 .inlineDashedRequest{
   display: inline;
   border-style: solid;
