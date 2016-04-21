@@ -55,9 +55,10 @@ if (!$link){
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id, $picture, $firstName, $lastName, $summary);
 				echo "check5";
+				echo "<ul class='networkbox'>";
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
-					echo "check6";
+					echo "check1";
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
@@ -68,13 +69,14 @@ if (!$link){
 					echo "<input type='hidden' name='user' value='$id'>";
 					echo "<button type='submit' class='connection-name btn btn-link'>$firstName $lastName</button>";
 					echo "</form>";
-					//echo "<p class='connection-name'>$firstName $lastName</p>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";
 					echo "</div>";
 					echo "</li>";
 				}
+				echo "</ul>";
+				echo "</div>";
 				mysqli_stmt_close($stmt2);
 			}
 		}
