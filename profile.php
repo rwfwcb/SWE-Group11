@@ -65,7 +65,7 @@ $id1 = $_SESSION['id'];
 				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
 					echo "<li class = 'list-card'>";
-					echo "<div class='connection-card box bordered dotted'>";
+					echo "<div class='connection-card inlineDashedRequest'>";
 					echo "<div class='connection-body-left'>";
 					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
 					echo "</div>";
