@@ -171,7 +171,7 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 echo "<form id='form1' action='index.php?id=insertWallpost' method='POST'>";
 echo "<div class='form-group'>";
 echo "<label for='comment'>Share an update</label>";
-echo "<textarea form='form1' name='wallpost' class='form-control' rows='3' id='comment'></textarea>";
+echo "<textarea form='form1' name='wallpost' class='form-control' rows='3' id='comment' placeholder='What's on your mind?></textarea>";
 echo "<button type='submit' class='btn btn-primary'>Share</button>";
 echo "</div>";
 echo "</form>";
