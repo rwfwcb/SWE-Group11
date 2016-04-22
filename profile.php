@@ -168,10 +168,11 @@ echo "<div class='panel-heading' style='font-size: 18pt;'>News Feed</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-10 col-md-offset-1'>";
 
-echo "<form action='index.php?id=insertWallpost' method='POST'>";
+echo "<form id='form1' action='index.php?id=insertWallpost' method='POST'>";
 echo "<div class='form-group'>";
-echo "<label for='comment'>Comment:</label>";
-echo "<textarea class='form-control' rows='5' id='comment'></textarea>";
+echo "<label for='comment'>Share an update</label>";
+echo "<textarea form='form1' name='wallpost' class='form-control' rows='3' id='comment'></textarea>";
+echo "<button type='submit' class='btn btn-primary'>Share</button>";
 echo "</div>";
 echo "</form>";
 /* run prepared queries to get user wallposts */
