@@ -61,7 +61,7 @@ $id1 = $_SESSION['id'];
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id2, $picture, $fName, $lName);
 				/* print output for each result returned */
- 				echo "<div class='container'>";
+ 				echo "<div class='container'><h3>People are trying to connect with you!<h3>";
 				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
 					echo "<li class = 'inline list-card'>";
@@ -95,8 +95,7 @@ $id1 = $_SESSION['id'];
 	}
 	  /* close prepared statement */
 	  mysqli_stmt_close($stmt);
-	} else echo "Prepared statement 1 failed.";
-
+} else echo "Prepared statement 1 failed.";
 
 echo "<div class='container-fluid' style='padding-top: 10px;'>";
 echo "<div class='row'>";
@@ -104,7 +103,6 @@ echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
 echo "<div class='panel panel-info'>";
 echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName";
 echo "</div>";
-
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1'>";
 echo "<img class='img-responsive img-rounded' src='http://placehold.it/200x200' style='max-height: 200px; max-width: 200px;'>";
@@ -124,7 +122,6 @@ echo "<div class='panel panel-default'>";
 echo "<div class='panel-heading' style='font-size: 18pt;'>Recent connections</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-10 col-md-offset-1'>";
-
 
 /* run prepared queries to get users recent connections*/
 	/* create a prepared statement */
@@ -159,7 +156,6 @@ echo "<div class='col-md-10 col-md-offset-1'>";
 		mysqli_stmt_close($stmt);
 	} else echo "Prepared statement 2 failed.";
 
-
 echo "</div>";
 echo "</div>";
 echo "</div>";
@@ -172,6 +168,12 @@ echo "<div class='panel-heading' style='font-size: 18pt;'>News Feed</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-10 col-md-offset-1'>";
 
+echo "<form action='index.php?id=insertWallpost' method='POST'>";
+echo "<div class='form-group'>";
+echo "<label for='comment'>Comment:</label>";
+echo "<textarea class='form-control' rows='5' id='comment'></textarea>";
+echo "</div>";
+echo "</form>";
 /* run prepared queries to get user wallposts */
 	/* create a prepared statement */
 		if($stmt3 = mysqli_prepare($link, "SELECT P.firstName, P.lastName, W.postTime, W.body FROM Wallpost W JOIN Person P USING (id) WHERE id=?")){
