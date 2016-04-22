@@ -168,10 +168,11 @@ echo "<div class='panel-heading' style='font-size: 18pt;'>News Feed</div>";
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
 echo "<div class='col-md-10 col-md-offset-1'>";
 
+$placeholder = htmlspecialchars("What's on your mind?", ENT_QUOTES);
 echo "<form  action='index.php?id=insertWallpost' method='POST'>";
 echo "<div class='form-group'>";
 echo "<label for='comment'>Share an update</label>";
-echo "<textarea form='form1' name='wallpost' class='form-control' rows='3' id='comment' placeholder='What's on your mind?></textarea>";
+echo "<textarea form='form1' name='wallpost' class='form-control' rows='3' id='comment' placeholder=''$placeholder></textarea>";
 echo "<button type='submit' id='btnShare' class='btn btn-primary'>Share</button>";
 echo "</div>";
 echo "</form>";
