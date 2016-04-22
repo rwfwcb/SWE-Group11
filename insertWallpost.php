@@ -16,7 +16,8 @@ $link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
-$id = $_SESSION['id']
+
+$id = $_SESSION['id'];
 $body = $_POST['wallpost'];
 $sql3 = "INSERT INTO Wallpost (id, postTime, body) VALUES (?, now(), ?)";
 
