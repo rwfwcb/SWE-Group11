@@ -17,15 +17,14 @@ if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
 
-$sql3 = "INSERT INTO Wallpost (id, postTime, body) VALUES (?, ?, ?)";
+$sql3 = "INSERT INTO Wallpost (id, postTime, body) VALUES (?, now(), ?)";
 /* create a prepared statement */
 if ($stmt3 = mysqli_prepare($link, $sql3)){
   /* bind variables to marker */
 	$id = $_SESSION['id']
-	$now = "now()";
   $body = $_POST['wallpost'];
 
-  mysqli_stmt_bind_param($stmt3, "sss", $id, $now, $body) or die("bind param");
+  mysqli_stmt_bind_param($stmt3, "ss", $id, $body) or die("bind param");
   /* execute query */
   mysqli_stmt_execute($stmt3);
 	/* close the prepared statement */
