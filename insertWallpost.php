@@ -16,20 +16,21 @@ $link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 if (!$link){
 		printf("Connect failed: %s\n", mysqli_connect_error());
 }
-
+$id = $_SESSION['id']
+$body = $_POST['wallpost'];
 $sql3 = "INSERT INTO Wallpost (id, postTime, body) VALUES (?, now(), ?)";
+
 /* create a prepared statement */
 if ($stmt3 = mysqli_prepare($link, $sql3)){
   /* bind variables to marker */
-	$id = $_SESSION['id']
-  $body = $_POST['wallpost'];
-
   mysqli_stmt_bind_param($stmt3, "ss", $id, $body) or die("bind param");
   /* execute query */
   mysqli_stmt_execute($stmt3);
 	/* close the prepared statement */
 	mysqli_stmt_close($stmt3);
+	/* redirect back to profile page */
+	header("Location: index.php?id=profile");
 
-} else echo "<script type='text/javascript'>alert('Prepared statement 3 failed.')</script>";
+} else echo "Prepared statement 3 failed.";
 
 ?>
