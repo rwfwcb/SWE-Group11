@@ -22,7 +22,7 @@ $sql3 = "INSERT INTO Wallpost (id, postTime, body) VALUES (?, ?, ?)";
 if ($stmt3 = mysqli_prepare($link, $sql3)){
   /* bind variables to marker */
 	$id = $_SESSION['id']
-	$now = "now()"
+	$now = "now()";
   $body = $_POST['wallpost'];
 
   mysqli_stmt_bind_param($stmt3, "sss", $id, $now, $body) or die("bind param");
@@ -30,7 +30,7 @@ if ($stmt3 = mysqli_prepare($link, $sql3)){
   mysqli_stmt_execute($stmt3);
 	/* close the prepared statement */
 	mysqli_stmt_close($stmt3);
-	
+
 } else echo "<script type='text/javascript'>alert('Prepared statement 3 failed.')</script>";
 
 ?>
