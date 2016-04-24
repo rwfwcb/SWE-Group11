@@ -2,10 +2,6 @@
 /* start the session */
 session_start();
 
-if(!isset($_SESSION['username'])) {
-	header("Location: index.php?id=login-form");
-}
-
 if(!isset($_SESSION['id'])) {
 	header("Location: index.php?id=login-form");
 }
@@ -22,17 +18,7 @@ if (!$link){
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>My Network</title>
-<!-- link in Bootstrap and jQuery -->
-<link rel="stylesheet" href="css/app.css">
-<script src="js/bootstrap/bootstrap.min.js"></script>
-<script src="js/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="css/mynetwork.css">
-</head>
-<body>
 	<div class="container">
 		<ul class="networkbox">
 			<div class="network-header">
@@ -50,35 +36,50 @@ if (!$link){
 		/* store result */
 		mysqli_stmt_store_result($stmt);
 		printf("You have %d connections.<br>", mysqli_stmt_num_rows($stmt));
+		echo "check00";
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $id1, $id2, $since);
+		mysqli_stmt_bind_result($stmt, $id1, $id2);
+		echo "check0";
 		/* fetch results row by row */
 		while (mysqli_stmt_fetch($stmt)){ /* print output */
+			echo "check01";
 			/* create a prepared statement */
-			if ($stmt2 = mysqli_prepare($link, "SELECT * FROM Profile JOIN Person USING (id) WHERE id=?")){
+			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName, summary FROM Profile JOIN Person USING (id) WHERE id=?")){
 				/* bind variables to marker */
+				echo "check1";
 				mysqli_stmt_bind_param($stmt2, 's', $id2);
+				echo "check2";
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
+				echo "check3";
 				/* store result */
 				mysqli_stmt_store_result($stmt2);
+				echo "check4";
 				/* bind result variables */
-				mysqli_stmt_bind_result($stmt2, $id, $email, $hashpass, $picture, $memberSince, $firstName, $lastName, $languages, $summary);
+				mysqli_stmt_bind_result($stmt2, $id, $picture, $firstName, $lastName, $summary);
+				echo "check5";
+				echo "<ul class='networkbox'>";
 				/* print output for each result returned */
 				while (mysqli_stmt_fetch($stmt2)){
+					echo "check1";
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
 					echo "<div class='connection-body-left'>";
-					echo "<img src='$picture' alt='User Picture'>";
+					echo "<img src='http://placehold.it/100x100' alt='User Picture'>";
 					echo "</div>";
 					echo "<div class='connection-body-right'>";
-					echo "<p class='connection-name'>$firstName . ' ' . $lastName</p>";
+					echo "<form action='index.php?id=profileX' method='POST'>";
+					echo "<input type='hidden' name='user' value='$id'>";
+					echo "<button type='submit' class='connection-name btn btn-link'>$firstName $lastName</button>";
+					echo "</form>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";
 					echo "</div>";
 					echo "</li>";
 				}
+				echo "</ul>";
+				echo "</div>";
 				mysqli_stmt_close($stmt2);
 			}
 		}
@@ -88,6 +89,4 @@ if (!$link){
 		</ul>
 		</div>
 	</div>
-</body>
-<!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment.
-</html>
+<!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment. -->

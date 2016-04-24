@@ -4,6 +4,49 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+.container{
+    background-color: aliceblue;
+    padding: 10px;
+}
+.info{
+    margin-left: 215px;
+}
+#pic{
+    float: left;
+}
+#followBtn{
+    float: right;
+}
+#update{
+    float: left;
+    padding-right: 25px;
+}
+#searchBar{
+  margin-left: auto;
+  margin-right: auto;
+}
+.choice{
+    text-align: center;
+}
+.choice a{
+    text-align: center;
+    padding-right: 20px;
+}
+.aboutUs{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+}
+.wallpost{
+    background-color: snow;
+    padding: 10px;
+}
+
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
