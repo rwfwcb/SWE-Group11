@@ -45,7 +45,7 @@ if (!$link){
 	}
 ?>
 
-<link rel="stylesheet" href="css/messenger.css"> -->
+<link rel="stylesheet" href="css/messenger.css">
 
   <div class="container">
     <!-- Example row of columns -->
@@ -87,8 +87,8 @@ if (!$link){
                       <form id="messageForm" class="form-inline" role="form" action="index.php?id=messageController" method="POST">
                         <div class="form-group" id = "group">
                             <div id = "combine">
-                              <input type="text" class="form-control" placeholder="Message recipients go here..." name="receiver" value='<? $_POST['recipient'] ?>' readonly>
-                              <textarea form="messageForm" class="form-control" placeholder="" id ="messages" name='messageContent' rows=4 placeholer='Enter message contents here...'>
+                              <input type="text" class="form-control" placeholder="Message recipients go here..." name="receiver" value="<? $_POST['recipient'] ?>" readonly>
+                              <textarea form="messageForm" class="form-control" placeholder="" id ="messages" name='messageContent' rows=4 placeholer='Enter message contents here...'></textarea>
                                 <button class="btn btn-primary" id= "connection">Send</button>
                             </div>
                         </div>
