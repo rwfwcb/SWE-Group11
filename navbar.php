@@ -25,7 +25,11 @@
 				class="active" <?php } ?>
 		>
 		<a href="index.php">Home</a></li>
-		<li><a href="index.php?id=profile">Profile</a></li>
+		<li
+        <?php
+			if($_GET['id'] == "profile") { ?>
+				class="active" <?php } ?>
+        ><a href="index.php?id=profile">Profile</a></li>
 			</ul>
 
 			<div class="col-sm-3 col-md-3 col-centered row-centered nav navbar-nav">
@@ -51,7 +55,7 @@
                         <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="" required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-success">Sign in</button>
-                    <a href="index.php?id=register"><button type="button" class="btn btn-primary">Register</button></a>
+                    <a href="index.php?id=reg-choose"><button type="button" class="btn btn-primary">Register</button></a>
                 </form>
             </ul>
         <?php } ?>
@@ -62,7 +66,7 @@
                     <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown" style="padding-top: 5px; padding-bottom: 5px;">
                         <img src="http://placehold.it/40x40" class="img-circle" style="padding-right: 2px;"> <?php echo $_SESSION['loggedin']; ?> <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="mynetwork.html">My Network</a></li>
+                                    <li><a href="index.php?id=mynetwork">My Network</a></li>
                                     <li><a href="#">Messages</a></li>
                                     <li class="divider"></li>
                                     <li><a href="logout.php">Logout</a></li>

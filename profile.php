@@ -81,7 +81,7 @@ echo "<div class='container-fluid' style='padding-top: 10px;'>";
 echo "<div class='row'>";
 echo "<div class='col-md-5 col-md-offset-1 col-sm-12'>";
 echo "<div class='panel panel-info'>";
-echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName";
+echo "<div class='panel-heading' style='font-size: 18pt;'>$firstName $lastName <a href='index.php?id=editprofile'><button class='btn btn-primary pull-right'>Edit profile</button></a>";
 echo "</div>";
 
 echo "<div class='row' style='padding-top: 10px; padding-bottom: 10px;'>";
