@@ -88,7 +88,10 @@ if (!$link){
                         <div class="form-group" id = "group">
                             <div id = "combine">
                               <div class='form-group'>
-                                <input type="text" class="form-control" placeholder="Message recipient goes here..." name="receiver" value="<?php $_POST['recipient'] ?>" readonly>
+                                <?php if isset($_POST['recipient']){
+                                  echo "<input type='text' class='form-control' placeholder='Message recipient goes here...' name='receiver' value='$_POST['recipient'] readonly>";
+                                } else echo "<h3>Select a message recipient from your connections list.</h3>";
+                                ?>
                               </div>
                               <div class='form-group'>
                                 <textarea form="messageForm" class="form-control" id ="messages" name='messageContent' rows=4 placeholer='Enter message contents here...'></textarea>
