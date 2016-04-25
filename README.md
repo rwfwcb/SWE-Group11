@@ -43,7 +43,7 @@ In order to register, please head over to our [Home Page](http://linkedin.td9175
 <p align="right"><a href="#top">:arrow_up:</a></p>
 ## Privacy
 
-While the current system does encrypt your registration password and does not publicly show your email address on your profile. We still highly recommend to not use your real name, email address, and/or your commonly used password when registering for our service. We cannot guarantee a high level of security, due to the early stages of development. Thank you for your understanding. 
+While the current system does encrypt your registration password and does not publicly show your email address on your profile, we still highly recommend to not use your real name, email address, and/or your commonly used password(s) when registering for our service. We cannot guarantee a high level of security, due to the early stages of development. Thank you for your understanding. 
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
 ## Contributing
