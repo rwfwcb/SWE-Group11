@@ -40,7 +40,7 @@ if (!$link){
 				mysqli_stmt_store_result($stmt2);
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id, $picture, $firstName, $lastName);
-			} else echo "prepare 2 failed.\n"
+			} else echo "prepare 2 failed.\n";
 		}
 	}
 ?>
