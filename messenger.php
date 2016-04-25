@@ -84,7 +84,7 @@ if (!$link){
               <div class="col-lg-12">
                   <div class="message_box">
                       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                      <form id="messageForm" class="form-inline" role="form" action="index.php?id=messageController" method="POST">
+                      <form id="messageForm" class="form-group" role="form" action="index.php?id=messageController" method="POST">
                         <div class="form-group" id = "group">
                             <div id = "combine">
                               <div class='form-group'>
