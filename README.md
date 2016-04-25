@@ -75,7 +75,7 @@ Link: [SWE-Group11 Wiki](https://github.com/dmbyrd/SWE-Group11/wiki)
 
 ####External####
 - Our application look/functionality is heavily based on [LinkedIn](https://www.linkedin.com/)
-- Our `README.md` top link layout and *credits* section based on [@b4b4r07's README.md](https://github.com/zanshin/dotfiles)
+- Our `README.md` top link layout and *credits* section based on [@b4b4r07's README.md](https://github.com/b4b4r07/dotfiles)
 - Our `README.md` general layout based on [@jxons's README.md](https://gist.github.com/jxson/1784669)
 - Our `README.md` *contributing* section based on [@karan's README.md](https://github.com/karan/joe)
 - Add more later, once project nears completion, and this becomes more of a priority. 
