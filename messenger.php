@@ -87,9 +87,15 @@ if (!$link){
                       <form id="messageForm" class="form-inline" role="form" action="index.php?id=messageController" method="POST">
                         <div class="form-group" id = "group">
                             <div id = "combine">
-                              <input type="text" class="form-control" placeholder="Message recipients go here..." name="receiver" value="<? $_POST['recipient'] ?>" readonly>
-                              <textarea form="messageForm" class="form-control" placeholder="" id ="messages" name='messageContent' rows=4 placeholer='Enter message contents here...'></textarea>
-                                <button class="btn btn-primary" id= "connection">Send</button>
+                              <div class='form-group'>
+                                <input type="text" class="form-control" placeholder="Message recipient goes here..." name="receiver" value="<?php $_POST['recipient'] ?>" readonly>
+                              </div>
+                              <div class='form-group'>
+                                <textarea form="messageForm" class="form-control" id ="messages" name='messageContent' rows=4 placeholer='Enter message contents here...'></textarea>
+                              </div>
+                              <div class='form-group'>
+                                <button class="btn btn-success" id= "connection">Send</button>
+                              </div>
                             </div>
                         </div>
                        </form>
