@@ -111,7 +111,7 @@ if (!$link){
           <?php
           /* run prepared queries to see if the user has any connections*/
           	/* create a prepared statement */
-          		if($stmt = mysqli_prepare($link, "SELECT senderID, receiverID, body, messageWhen FROM Message WHERE recipient=?")){
+          		if($stmt = mysqli_prepare($link, "SELECT senderID, receiverID, body, messageWhen FROM Message WHERE receiverID=?")){
           		/* bind variables to marker */
           		mysqli_stmt_bind_param($stmt, 's', $_SESSION['id']);
           		/* execute query */
