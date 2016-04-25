@@ -83,7 +83,7 @@ if (!$link){
             <h2 align="center">Message Box </h2>
               <div class="col-lg-12">
                   <div class="message_box">
-                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                      <br><br><br><br><br><br><br><br><br><br><br><br>
                       <form id="messageForm" class="form-group" role="form" action="index.php?id=messageController" method="POST">
                         <div class="form-group" id = "group">
                             <div id = "combine">
