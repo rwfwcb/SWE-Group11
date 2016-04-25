@@ -6,10 +6,10 @@
     echo("</div>");
 } ?>
 
-<div class="container-fluid">
+<div class="container-fluid" style="max-width: 500px;">
 
    <form class="form-signin" role="form" action="login.php" method="POST">
-     <h2 style="margin-top: 10px;" class="form-signin-heading">Sign in</h2>
+     <h2 style="margin-top: 10px; text-align: center;" class="form-signin-heading">Sign in</h2>
      <input style="margin-bottom: 10px;" type="email" id="username" name="username" class="form-control" placeholder="Email address" value="" required autofocus>
      <input style="margin-bottom: 10px;" type="password" id="password" name="password" class="form-control" placeholder="Password" required>
      <input style="margin-bottom: 10px;" class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Log in">
