@@ -1,33 +1,88 @@
 # SWE-Group11
 
-## Synopsis
+<p align="center">
+<b><a href="#overview">Overview</a></b>
+|
+<b><a href="#features">Features</a></b>
+|
+<b><a href="#registration">Registration</a></b>
+|
+<b><a href="#privacy">Privacy</a></b>
+|
+<b><a href="#contributing">Contributing</a></b>
+|
+<b><a href="#wiki">Wiki</a></b>
+|
+<b><a href="#credits">Credits</a></b>
+|
+<b><a href="#license">License</a></b>
+</p>
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+## Overview
 
-## Code Example
+Group 11 final project for Software Engineering at the University of MIssouri - Columbia. The goal of our project was to recreate LinkedIn to the best of our abilities within a small team of five individuals. We had to heavily focus on requirements management, since we would eventually be unable to recreate the vast majority of the features LinkedIn offers, and instead focus on the core features we would like to implement. We would continue to design and begin developing our code through 4 weekly sprints, gathering quick feedback from our instructors. Finally, what we have here is a very rough prototype of our project.
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+####Link to the final project application####
+[Group 11 - LinkedIn Application](http://linkedin.td9175.com/)
 
-## Motivation
+## Features
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
++ *Registration / Login* - To gain access to the system (Currently in Development) 
++ *Edit User Profile* - To personalize your profile page (Currently in Development) 
++ *Connecting* - With other Users in order to grow your network (Currently in Development) 
++ *Search* - Other users by their first name (Currently in Development) 
++ *Messaging* - Between two users who are connected(Currently in Development) 
++ *My Network* - Viewing one's connected network (Currently in Development)
++ *Wiki* - A full fledged wiki dedicated to this project, which documents the development of the application (Currenly in Development)
 
-## Installation
+<p align="right"><a href="#top">:arrow_up:</a></p>
+## Registration
 
-Provide code examples and explanations of how to get the project.
+In order to register, please head over to our [Home Page](http://linkedin.td9175.com/), and then head to the top right corner and find the registration button. Please fill out the requested information, and upon doing so: you’ll gain access to our system. Note: We highly recommend you check the *Privacy* section of this document, before continuing on to create your account. 
 
-## API Reference
+<p align="right"><a href="#top">:arrow_up:</a></p>
+## Privacy
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+While the current system does encrypt your registration password and does not publicly show your email address on your profile. We still highly recommend to not use your real name, email address, and/or your commonly used password when registering for our service. We cannot guarantee a high level of security, due to the early stages of development. Thank you for your understanding. 
 
-## Tests
+<p align="right"><a href="#top">:arrow_up:</a></p>
+## Contributing
 
-Describe and show how to run the tests with code examples.
+#### Bug Reports & Feature Requests
 
-## Contributors
+Please use the [issue tracker](https://github.com/dmbyrd/SWE-Group11/issues) to report any bugs or file any feature reqeusts.
 
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
+<p align="right"><a href="#top">:arrow_up:</a></p>
+## Wiki
 
+If you wish to learn more about the development process of this application, we have used the wiki to document our progress. 
+Link: [SWE-Group11 Wiki](https://github.com/dmbyrd/SWE-Group11/wiki)
+
+<p align="right"><a href="#top">:arrow_up:</a></p>
+## Credits
+
+####Group 11 Members####
++ Robert Fink
++ Kenny Clark
++ Dale Brauer
++ Xiang Li
++ Gaofei Zhao
+
+####Class Instructors####
++ Dr. Sean P. Goggins
++ Justin Schuyler
++ Joe Trammel (PLA)
+
+####External####
+- Our application look/functionality is heavily based on [LinkedIn](https://www.linkedin.com/)
+- Our `README.md` top link layout and *credits* section based on [@b4b4r07's README.md](https://github.com/zanshin/dotfiles)
+- Our `README.md` general layout based on [@jxons's README.md](https://gist.github.com/jxson/1784669)
+- Our `README.md` *contributing* section based on [@karan's README.md](https://github.com/karan/joe)
+- Add more later, once project nears completion, and this becomes more of a priority. 
+
+<p align="right"><a href="#top">:arrow_up:</a></p>
 ## License
 
-A short snippet describing the license (MIT, Apache, etc.)
+Currently a work progress. All licenses will be updated in the coming days while the project wraps up. 
+
+<p align="right"><a href="#top">:arrow_up:</a></p>
