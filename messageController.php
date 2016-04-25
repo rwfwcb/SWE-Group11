@@ -22,7 +22,7 @@ if (!$link){
 	/* create a prepared statement */
 		if($stmt = mysqli_prepare($link, "INSERT INTO Message (senderID, receiverID, body, messageWhen)VALUES (?, ?, ?, now())")){
 		/* bind variables to marker */
-		mysqli_stmt_bind_param($stmt, 's', $_SESSION['id'], $_POST['receiver'], $_POST['messageContent']);
+		mysqli_stmt_bind_param($stmt, 'sss', $_SESSION['id'], $_POST['receiver'], $_POST['messageContent']);
 		/* execute query */
 		mysqli_stmt_execute($stmt);
 		/* close the prepared stmt */
@@ -30,4 +30,6 @@ if (!$link){
     /* close the connection */
     mysqli_close($link);
   }
+
+header("Location: index.php?id=messenger");
 ?>
