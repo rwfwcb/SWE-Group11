@@ -89,7 +89,8 @@ if (!$link){
                             <div id = "combine">
                               <div class='form-group'>
                                 <?php if (isset($_POST['recipient'])){
-                                  echo "<input type='text' class='form-control' placeholder='Message recipient goes here...' name='receiver' value='$_POST['recipient'] readonly>";
+                                  $recipient = $_POST['recipient'];
+                                  echo "<input type='text' class='form-control' placeholder='Message recipient goes here...' name='receiver' value='$recipient' readonly>";
                                 } else echo "<h3>Select a message recipient from your connections list.</h3>";
                                 ?>
                               </div>
