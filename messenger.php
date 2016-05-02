@@ -110,7 +110,7 @@ if (!$link){
         </div>
         <div class='inbox'>
           <?php
-          /* run prepared queries to see if the user has any connections*/
+          /* run prepared queries to see if the user has any messages*/
           	/* create a prepared statement */
           		if($stmt = mysqli_prepare($link, "SELECT senderID, receiverID, body, messageWhen FROM Message WHERE receiverID=?")){
           		/* bind variables to marker */
@@ -136,7 +136,13 @@ if (!$link){
                 echo "<table>";
                 echo "<tr><th></th><th></th><th>From</th><th>Message Content</th><th>Timestamp</th></tr>";
                 while (mysqli_stmt_fetch($stmt2)){
-                  echo "<tr><td>Delete</td><td>Reply</td><td>$fName $lName</td><td>$body</td><td>$messageWhen</td></tr>";
+									echo "<form id='deleteForm' class='form-control' action='index.php?id=messageDelete' method='POST'></form>";
+									echo "<input form='deleteForm' type='hidden' name='senderID' value='$senderID'>";
+									echo "<input form='deleteForm' type='hidden' name='receiverID' value='$receiverID'>";
+									echo "<input form='deleteForm' type='hidden' name='messageWhen' value='$messageWhen'>";
+									echo "<form id='replyForm' action='index.php?id=messenger' method='POST'></form>";
+									echo "<input form='replyForm' type='hidden' name='recipient' value='$senderID'>";
+                  echo "<tr><td><button class='btn btn-danger' type='submit' form='deleteForm'>Delete</button></td><td><button class='btn btn-success' type='submit' form='replyForm'>Reply</button></td><td>$fName $lName</td><td>$body</td><td>$messageWhen</td></tr>";
                 }
                 echo "</table>";
                 mysqli_stmt_close($stmt2);
