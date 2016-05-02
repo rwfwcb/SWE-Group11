@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 }
 ?>
 
-<form class="form-horizontal" action="reg-org2.php" method="POST">
+<form class="form-horizontal" action="index.php?id=reg-org2" method="POST">
 <fieldset>
 <!-- Text input-->
 <div class="form-group" id="ongroup">
@@ -36,6 +36,14 @@ if(isset($_POST['submit'])) { // Was the form submitted?
       <option value="School">School</option>
       <option value="Company">Company</option>
     </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit">Register</label>
+  <div class="col-md-4">
+    <button type="submit" id="submit" name="submit" class="btn btn-primary">Register now</button>
   </div>
 </div>
 
