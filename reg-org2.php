@@ -1,14 +1,31 @@
 <?php
+
+require "db.conf";
+
+$id = 0;
+
+if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
+  $sql = "SELECT id FROM Profile WHERE email=?";
+  if ($stmt = mysqli_prepare($link, $sql)) {
+    $email = $_SESSION['email'];
+    mysqli_stmt_bind_param($stmt, "s", $email) or die("bind param");
+      if(mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_bind_result($stmt, $id);
+        mysqli_stmt_fetch($stmt);
+      } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
+  } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
+} else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
+
 if(isset($_POST['submit'])) { // Was the form submitted?
 
   require "db.conf";
 
   if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
-    $sql = "INSERT INTO SchoolOrCompany (name, pType) VALUES (?,?)";
+    $sql = "INSERT INTO SchoolOrCompany (id, name, pType) VALUES (?,?,?)";
     if ($stmt = mysqli_prepare($link, $sql)) {
       $orgName = $_POST['orgname'];
       $ptype = $_POST['pType'];
-      mysqli_stmt_bind_param($stmt, "ss", $orgName, $ptype) or die("bind param");
+      mysqli_stmt_bind_param($stmt, "dss", $id, $orgName, $ptype) or die("bind param");
         if(mysqli_stmt_execute($stmt)) {
           echo "<script type='text/javascript'>alert('Succesfully registered (organization)!')</script>";
           header("Location: index.php?id=login-form");

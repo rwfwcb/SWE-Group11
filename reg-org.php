@@ -4,6 +4,8 @@ if(isset($_POST['submit'])) { // Was the form submitted?
     echo "<script type='text/javascript'>alert('Password entries do not match.')</script>";
   }
 
+  $_SESSION['email'] = $POST_['email'];
+
   require "db.conf";
 
   if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
