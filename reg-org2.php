@@ -19,7 +19,6 @@ if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
 ?>
 
 <form class="form-horizontal" action="index.php?id=reg-org2-controller" method="POST">
-<fieldset>
 
 <!-- hidden input -->
 <?php
