@@ -17,7 +17,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
       if ($pass == $cpass){
         if(mysqli_stmt_execute($stmt)) {
           echo "<script type='text/javascript'>alert('Succesfully registered (individual)!')</script>";
-          header("Location: index.php");
+          header("Location: index.php?id=login-form");
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
     } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }

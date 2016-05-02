@@ -69,7 +69,7 @@
                         <img src="http://placehold.it/40x40" class="img-circle" style="padding-right: 2px;"> <?php echo $_SESSION['loggedin']; ?> <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="index.php?id=mynetwork">My Network</a></li>
-                                    <li><a href="#">Messages</a></li>
+                                    <li><a href="index.php?id=messenger">Messages</a></li>
                                     <li class="divider"></li>
                                     <li><a href="logout.php">Logout</a></li>
                                 </ul>
