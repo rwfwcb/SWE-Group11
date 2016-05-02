@@ -17,7 +17,7 @@ if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
 } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
 
 ?>
-<form id='indForm2' class="form-horizontal" action="reg-ind2.php" method="POST"></form>
+<form id='indForm2' class="form-horizontal" action="index.php?id=reg-ind2-controller" method="POST"></form>
 <fieldset>
 
 <!-- Form Name -->
