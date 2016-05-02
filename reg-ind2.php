@@ -1,9 +1,33 @@
+<?php
+
+require "db.conf";
+
+$id = 0;
+
+if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
+  $sql = "SELECT id FROM Profile WHERE email=?";
+  if ($stmt = mysqli_prepare($link, $sql)) {
+    $email = $_SESSION['email'];
+    mysqli_stmt_bind_param($stmt, "s", $email) or die("bind param");
+      if(mysqli_stmt_execute($stmt)) {
+        mysqli_bind_result($stmt, $id);
+        mysqli_stmt_fetch($stmt);
+      } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
+  } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
+} else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
+
+?>
 <form id='indForm2' class="form-horizontal" action="reg-ind2.php" method="POST"></form>
 <fieldset>
 
 <!-- Form Name -->
 <legend><h2 class="text-center" style="padding-top: 10px;">Finish signing up!</h2></legend>
 <div class="container-fluid">
+  <!-- Hidden input -->
+  <?php
+  echo "<input form='indForm2' type='hidden' name='id' value='$id'>";
+  ?>
+
     <!-- Text input-->
     <div class="form-group" id="fngroup">
       <label class="col-md-4 control-label" for="fname">First name</label>

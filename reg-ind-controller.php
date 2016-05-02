@@ -5,6 +5,8 @@
 
   require "db.conf";
 
+  $_SESSION['email'] = $_POST['email'];
+
   if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
     $sql = "INSERT INTO Profile (email, hashpass) VALUES (?,?)";
     if ($stmt = mysqli_prepare($link, $sql)) {
