@@ -10,7 +10,7 @@ if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
     $email = $_SESSION['email'];
     mysqli_stmt_bind_param($stmt, "s", $email) or die("bind param");
       if(mysqli_stmt_execute($stmt)) {
-        mysqli_bind_result($stmt, $id);
+        mysqli_stmt_bind_result($stmt, $id);
         mysqli_stmt_fetch($stmt);
       } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
   } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
