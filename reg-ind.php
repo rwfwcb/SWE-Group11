@@ -16,13 +16,12 @@ if(isset($_POST['submit'])) { // Was the form submitted?
       mysqli_stmt_bind_param($stmt, "ss", $email, $hpass) or die("bind param");
       if ($pass == $cpass){
         if(mysqli_stmt_execute($stmt)) {
-          echo "<script type='text/javascript'>alert('Succesfully registered (individual)!')</script>";
-          header("Location: index.php?id=login-form");
+          header("Location: index.php?id=reg-ind2");
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
     } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
   } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
-} 
+}
 ?>
 
 <form class="form-horizontal" action="reg-ind.php" method="POST">
@@ -32,23 +31,8 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 <legend><h2 class="text-center" style="padding-top: 10px;">Sign up!</h2></legend>
 <div class="container-fluid">
     <!-- Text input-->
-    <div class="form-group" id="fngroup">
-      <label class="col-md-4 control-label" for="fname">First name</label>  
-      <div class="col-md-4">
-      <input id="fname" name="fname" placeholder="First name" class="form-control input-md" type="text">
-      </div>
-    </div>
-    <!-- Text input-->
-    <div class="form-group" id="lngroup">
-      <label class="col-md-4 control-label" for="lname">Last name</label>  
-      <div class="col-md-4">
-      <input id="lname" name="lname" placeholder="Last name" class="form-control input-md" type="text">
-      </div>
-    </div>
-
-    <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="email">Email</label>  
+      <label class="col-md-4 control-label" for="email">Email</label>
       <div class="col-md-4">
       <input id="email" name="email" placeholder="Email address" class="form-control input-md" required type="email">
       </div>
@@ -56,7 +40,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="password">Password</label>  
+      <label class="col-md-4 control-label" for="password">Password</label>
       <div class="col-md-4">
       <input id="password" name="password" placeholder="Password" class="form-control input-md" required type="password">
       </div>
@@ -64,7 +48,7 @@ if(isset($_POST['submit'])) { // Was the form submitted?
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="cpassword">Confirm password</label>  
+      <label class="col-md-4 control-label" for="cpassword">Confirm password</label>
       <div class="col-md-4">
       <input id="cpassword" name="cpassword" placeholder="Confirm password" class="form-control input-md" required type="password">
       </div>

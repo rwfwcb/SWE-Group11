@@ -1,0 +1,42 @@
+<?php
+if(isset($_POST['submit'])) { // Was the form submitted?
+
+  require "db.conf";
+
+  if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
+    $sql = "INSERT INTO SchoolOrCompany (name, pType) VALUES (?,?)";
+    if ($stmt = mysqli_prepare($link, $sql)) {
+      $orgName = $_POST['orgname'];
+      $ptype = $_POST['pType'];
+      mysqli_stmt_bind_param($stmt, "ss", $orgName, $ptype) or die("bind param");
+        if(mysqli_stmt_execute($stmt)) {
+          echo "<script type='text/javascript'>alert('Succesfully registered (organization)!')</script>";
+          header("Location: index.php?id=login-form");
+        } else { echo "Statment execute failed.\n"; }
+    } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
+  } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
+}
+?>
+
+<form class="form-horizontal" action="reg-org2.php" method="POST">
+<fieldset>
+<!-- Text input-->
+<div class="form-group" id="ongroup">
+  <label class="col-md-4 control-label" for="orgname">Organization name</label>
+  <div class="col-md-4">
+  <input id="orgname" name="orgname" placeholder="Organization name" class="form-control input-md" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group" id="ongroup">
+  <label class="col-md-4 control-label" for="pType">Are you a school or a company?</label>
+  <div class="col-md-4">
+    <select name='pType' class='form-group'>
+      <option value="School">School</option>
+      <option value="Company">Company</option>
+    </select>
+  </div>
+</div>
+
+</form>
