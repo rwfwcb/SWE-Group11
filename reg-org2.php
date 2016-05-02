@@ -13,6 +13,8 @@ if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
         mysqli_stmt_bind_result($stmt, $id);
         mysqli_stmt_fetch($stmt);
       } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
+      mysqli_stmt_close($stmt);
+      mysqli_close($link);
   } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
 } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
 
