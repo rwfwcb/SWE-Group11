@@ -1,4 +1,5 @@
 <?php
+if(isset($_POST['submit'])) { // Was the form submitted?
 
   require "db.conf";
 
@@ -15,6 +16,7 @@
         } else { echo "<script type='text/javascript'>alert('Statement execute failed.\n"; }
     } else { echo "<script type='text/javascript'>alert('Prepared statement failed.')</script>"; }
   } else { echo "<script type='text/javascript'>alert('Unable to establish a MySQL connection.')</script>"; }
+}
 ?>
 
 <form id='indForm2' class="form-horizontal" action="reg-ind2.php" method="POST"></form>
