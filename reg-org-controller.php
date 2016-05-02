@@ -3,7 +3,7 @@
     echo "<script type='text/javascript'>alert('Password entries do not match.')</script>";
   }
 
-  $_SESSION['email'] = $POST_['email'];
+
 
   require "db.conf";
 
@@ -17,6 +17,7 @@
       mysqli_stmt_bind_param($stmt, "ss", $email, $hpass) or die("bind param");
       if ($pass == $cpass){
         if(mysqli_stmt_execute($stmt)) {
+          $_SESSION['email'] = $_POST['email'];
           header("Location: index.php?id=reg-org2");
         } else { echo "<script type='text/javascript'>alert('This email already has a LinkedIn account associated with it.')</script>"; }
       }
