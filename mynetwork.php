@@ -66,7 +66,7 @@ if (!$link){
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
 					echo "</div>";
-					echo "</div>";
+					//echo "</div>";
 					echo "</li>";
 				}
 				//echo "</div>";
