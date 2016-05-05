@@ -50,28 +50,20 @@ $id1 = $_SESSION['id'];
 		mysqli_stmt_bind_result($stmt, $id01);
 	  /* get results */
 	  while (mysqli_stmt_fetch($stmt)){
-			echo "checkpoint1";
 			/* create a prepared statement */
 			if ($stmt2 = mysqli_prepare($link, "SELECT P.id, P.picture, Pe.firstName, Pe.lastName FROM Profile P JOIN Person Pe USING (id) WHERE id=?")){
-				echo "checkpoint2";
 				/* bind variables to marker */
 				mysqli_stmt_bind_param($stmt2, 'd', $id01);
-				echo "checkpoint3";
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
-				echo "checkpoint4";
 				/* store result */
-				//mysqli_stmt_store_result($stmt2);
-				echo "checkpoint5";
+				mysqli_stmt_store_result($stmt2);
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id2, $picture, $fName, $lName);
-				echo "checkpoint6";
 				/* print output for each result returned */
  				echo "<div class='container'><h3>People are trying to connect with you!<h3>";
 				echo "<ul class='networkbox'>";
-				echo "checkpoint6.5";
 				while (mysqli_stmt_fetch($stmt2)){
-					echo "checkpoint7";
 					echo "<li class = 'inline list-card'>";
 					echo "<div class='inline connection-card'>";
 					echo "<div class='inline connection-body-left'>";
