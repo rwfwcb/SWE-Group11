@@ -95,6 +95,7 @@ $id1 = $_SESSION['id'];
 	}
 	  /* close prepared statement */
 	  mysqli_stmt_close($stmt);
+		mysqli_stmt_close($stmt2);
 } else echo "Prepared statement 1 failed.";
 
 echo "<div class='container-fluid' style='padding-top: 10px;'>";
