@@ -53,18 +53,24 @@ $id1 = $_SESSION['id'];
 			echo "checkpoint1";
 			/* create a prepared statement */
 			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName FROM Profile JOIN Person USING (id) WHERE id=?")){
+				echo "checkpoint2";
 				/* bind variables to marker */
 				mysqli_stmt_bind_param($stmt2, 's', $id01);
+				echo "checkpoint3";
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
+				echo "checkpoint4";
 				/* store result */
 				mysqli_stmt_store_result($stmt2);
+				echo "checkpoint5";
 				/* bind result variables */
 				mysqli_stmt_bind_result($stmt2, $id2, $picture, $fName, $lName);
+				echo "checkpoint6";
 				/* print output for each result returned */
  				echo "<div class='container'><h3>People are trying to connect with you!<h3>";
 				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
+					echo "checkpoint7";
 					echo "<li class = 'inline list-card'>";
 					echo "<div class='inline connection-card'>";
 					echo "<div class='inline connection-body-left'>";
@@ -90,13 +96,15 @@ $id1 = $_SESSION['id'];
 				}
 				echo "</ul>";
 				echo "</div>";
-			//echo "<button type='button' class='connection-name btn btn-link'>$fName $lName</button>";
+
+			/* close prepared statement2 */
+			mysqli_stmt_close($stmt2);
 
 		} else echo "Prepared statement 2 failed.";
 	}
-	  /* close prepared statement */
+	  /* close prepared statement1 */
 	  mysqli_stmt_close($stmt);
-		mysqli_stmt_close($stmt2);
+
 } else echo "Prepared statement 1 failed.";
 
 echo "<div class='container-fluid' style='padding-top: 10px;'>";
