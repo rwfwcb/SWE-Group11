@@ -41,7 +41,7 @@ $id1 = $_SESSION['id'];
 	/* create a prepared statement */
 		if($stmt = mysqli_prepare($link, "SELECT id1 FROM ConnectionRequest WHERE id2 = ?")){
 		/* bind variables to marker */
-		mysqli_stmt_bind_param($stmt, 's', $id1);
+		mysqli_stmt_bind_param($stmt, 'd', $id1);
 		/* execute query */
 		mysqli_stmt_execute($stmt);
 		/* store result */
