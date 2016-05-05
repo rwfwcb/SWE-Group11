@@ -69,7 +69,7 @@ if (!$link){
 					echo "</div>";
 					echo "</li>";
 				}
-				echo "</div>";
+				//echo "</div>";
 				echo "</ul>";
 				mysqli_stmt_close($stmt2);
 			} else echo "prepare 2 failed.\n";
