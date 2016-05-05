@@ -55,7 +55,7 @@ $id1 = $_SESSION['id'];
 			if ($stmt2 = mysqli_prepare($link, "SELECT id, picture, firstName, lastName FROM Profile JOIN Person USING (id) WHERE id=?")){
 				echo "checkpoint2";
 				/* bind variables to marker */
-				mysqli_stmt_bind_param($stmt2, 's', $id01);
+				mysqli_stmt_bind_param($stmt2, 'd', $id01);
 				echo "checkpoint3";
 				/* execute query */
 				mysqli_stmt_execute($stmt2);
