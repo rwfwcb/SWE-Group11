@@ -71,8 +71,8 @@ if (!$link){
 					echo "</li>";
 				}
 				echo "</ul>";
-				echo "</ul>";
 				echo "</div>";
+				echo "</ul>";
 				mysqli_stmt_close($stmt2);
 			} else echo "prepare 2 failed.\n";
 		}
@@ -80,5 +80,5 @@ if (!$link){
 	}
 	mysqli_close($link);
 ?>
-		
+
 <!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment. -->
