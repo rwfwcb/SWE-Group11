@@ -20,26 +20,33 @@ background-color: darkgray;
 opacity:0.7 ;
 }
 
-#qqq{
+.qqq{
     margin-left:100px;
 }
 .container {
 background-image:url(http://pic.58pic.com/58pic/16/06/39/79V58PICi47_1024.jpg) ;
 }
-#combine{
+.combine{
     width:700px;
     height: 34px;
 }
-#messages{
+.messages{
     float: left;
     margin-left: 10px;
     padding:9px 28px;
 }
 #connection{
-    float: right;
+  float: right;
+  width: 80px;
+  margin: 10px;
+
 }
 
-#group{
+.btn btn-success
+right: 0;
+left: auto;
+
+.group{
     height: 34px;
 }
 table {
