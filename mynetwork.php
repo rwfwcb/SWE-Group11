@@ -65,12 +65,11 @@ if (!$link){
 					echo "</form>";
 					echo "<span></span>";
 					echo "<p class='connection-basicinfo'>$summary</p>";
-					//echo "</div>";
-					//echo "</div>";
+					echo "</div>";
+					echo "</div>";
 					echo "</li>";
 				}
-				//echo "</div>";
-				//echo "</ul>";
+
 				mysqli_stmt_close($stmt2);
 			} else echo "prepare 2 failed.\n";
 		}
@@ -81,6 +80,5 @@ if (!$link){
 
 </ul>
 	</div>
-</div>
 
 <!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment. -->
