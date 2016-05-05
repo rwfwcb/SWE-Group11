@@ -70,7 +70,7 @@ if (!$link){
 					echo "</li>";
 				}
 				//echo "</div>";
-				echo "</ul>";
+				//echo "</ul>";
 				mysqli_stmt_close($stmt2);
 			} else echo "prepare 2 failed.\n";
 		}
