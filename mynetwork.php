@@ -52,7 +52,6 @@ if (!$link){
 				mysqli_stmt_bind_result($stmt2, $id, $picture, $firstName, $lastName, $summary);
 
 				/* print output for each result returned */
-				echo "<ul class='networkbox'>";
 				while (mysqli_stmt_fetch($stmt2)){
 					echo "<li class = 'list-card'>";
 					echo "<div class='connection-card'>";
@@ -70,7 +69,6 @@ if (!$link){
 					echo "</div>";
 					echo "</li>";
 				}
-				echo "</ul>";
 				echo "</div>";
 				echo "</ul>";
 				mysqli_stmt_close($stmt2);
