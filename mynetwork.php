@@ -79,4 +79,8 @@ if (!$link){
 	mysqli_close($link);
 ?>
 
+</ul>
+	</div>
+</div>
+
 <!--"connection-card" classes based on LinkedIn's engagement-cards, but simplified for this assignment. -->
