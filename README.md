@@ -44,10 +44,9 @@ Group 11 final project for Software Engineering at the University of MIssouri - 
 
 #### Step 2 ####
 + Either download a ZIP of our Repo, or use GIT command line to bring all of the files to your machine. 
-+ 
+
 #### Step 3 ####
 + Import the tables defined in the DDL of the project to provide the necessary table structure.
-
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
 ## Privacy
