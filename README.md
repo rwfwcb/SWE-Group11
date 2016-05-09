@@ -5,7 +5,7 @@
 |
 <b><a href="#features">Features</a></b>
 |
-<b><a href="#registration">Registration</a></b>
+<b><a href="#setup">Setup</a></b>
 |
 <b><a href="#privacy">Privacy</a></b>
 |
@@ -36,9 +36,15 @@ Group 11 final project for Software Engineering at the University of MIssouri - 
 + *Wiki* - A full fledged wiki dedicated to this project, which documents the development of the application (Currenly in Development)
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
-## Registration
+## Setup
 
-In order to register, please head over to our [Home Page](http://linkedin.td9175.com/), and then head to the top right corner and find the registration button. Please fill out the requested information, and upon doing so: you’ll gain access to our system. Note: We highly recommend you check the *Privacy* section of this document, before continuing on to create your account. 
+#### Step 1 ####
++ We ask that you first setup a LAMP stack on a dedicated server. You can find out more about how to set up a LAMP stack at this great [DigitalOcean Article](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu)
++ In our case we used [Microsoft Azure](https://azure.microsoft.com/) as a service for hosting our Ubuntu machine during development. There are other options for cloud computing such as [DreamHost](https://www.dreamhost.com/) or [AWS](http://aws.amazon.com/). 
+
+#### Step 2 ####
++ Either download a ZIP of our Repo, or use GIT command line to bring all of the files to your machine. 
+
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
 ## Privacy
