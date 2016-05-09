@@ -22,50 +22,41 @@ if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
 
 <!-- Form Name -->
 <legend><h2 class="text-center" style="padding-top: 10px;">Finish signing up!</h2></legend>
-<div class="container-fluid">
+<div class="container-fluid" style="max-width: 500px;">
   <!-- Hidden input -->
   <?php
   echo "<input form='indForm2' type='hidden' name='id' value='$id'>";
   ?>
-
+  <form>
     <!-- Text input-->
     <div class="form-group" id="fngroup">
-      <label class="col-md-4 control-label" for="fname">First name</label>
-      <div class="col-md-4">
+      <label class="control-label" for="fname">First name</label>
       <input form='indForm2' id="fname" name="fname" placeholder="First name" class="form-control input-md" type="text">
-      </div>
     </div>
     <!-- Text input-->
     <div class="form-group" id="lngroup">
-      <label class="col-md-4 control-label" for="lname">Last name</label>
-      <div class="col-md-4">
+      <label class="control-label" for="lname">Last name</label>
       <input form='indForm2' id="lname" name="lname" placeholder="Last name" class="form-control input-md" type="text">
-      </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="email">Languages</label>
-      <div class="col-md-4">
+      <label class="control-label" for="email">Languages</label>
       <textarea form='indForm2' id="languages" name="languages" placeholder="What languages do you know?" class="form-control input-md" required type="email"></textarea>
-      </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="password">Summary</label>
-      <div class="col-md-4">
+      <label class="control-label" for="password">Summary</label>
       <textarea form='indForm2' id="summary" name="summary" placeholder="Enter a summary of yourself here..." class="form-control input-md" required type="password"></textarea>
-      </div>
     </div>
 
     <!-- Button -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="submit">Register</label>
-      <div class="col-md-4">
+      <label class="control-label" for="submit">Register</label>
         <button form='indForm2' type="submit" id="submit" name="submit" class="btn btn-primary">Register now</button>
-      </div>
     </div>
+</form>
 
 </div>
 </fieldset>
