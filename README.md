@@ -78,11 +78,11 @@ Link: [SWE-Group11 Wiki](https://github.com/dmbyrd/SWE-Group11/wiki)
 - Our `README.md` top link layout and *credits* section based on [@b4b4r07's README.md](https://github.com/b4b4r07/dotfiles)
 - Our `README.md` general layout based on [@jxons's README.md](https://gist.github.com/jxson/1784669)
 - Our `README.md` *contributing* section based on [@karan's README.md](https://github.com/karan/joe)
-- Add more later, once project nears completion, and this becomes more of a priority. 
+- There are probably a lot more credits we're forgetting, but at the current state of this prototype we have decided to not focus on this section. 
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
 ## License
 
-Currently a work progress. All licenses will be updated in the coming days while the project wraps up. 
+At the current state of this prototype we have decided to not focus on this section.  
 
 <p align="right"><a href="#top">:arrow_up:</a></p>
