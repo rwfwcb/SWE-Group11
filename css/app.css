@@ -21,6 +21,13 @@
     float: left;
     padding-right: 25px;
 }
+#searchBar{
+  margin-left: auto;
+  margin-right: auto;
+}
+#btnShare{
+  float: right;
+}
 .choice{
     text-align: center;
 }
@@ -40,6 +47,17 @@
 .wallpost{
     background-color: snow;
     padding: 10px;
+}
+.inline{
+  display: inline;
+}
+.acceptIgnore{
+  padding: 5px;
+}
+.inlineDashedRequest{
+  display: inline;
+  border-style: solid;
+  border-color: lightsteelblue;
 }
 
 

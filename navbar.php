@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <head>
 	<link rel="stylesheet" href="css/app.css">
 	<!-- <link rel="stylesheet" href="css/custom.css"> -->
@@ -18,6 +17,7 @@
       <a class="navbar-brand" href="index.php">LinkedIn</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
+
       <ul class="nav navbar-nav">
         <li
 		<?php
@@ -25,7 +25,26 @@
 				class="active" <?php } ?>
 		>
 		<a href="index.php">Home</a></li>
-      </ul>
+		<li
+        <?php
+			if($_GET['id'] == "profile") { ?>
+				class="active" <?php } ?>
+        ><a href="index.php?id=profile">Profile</a></li>
+			</ul>
+            <?php
+            if($loggedIn) { ?>
+			<div class="col-sm-3 col-md-3 col-centered row-centered nav navbar-nav">
+				<form action='index.php?id=searchResults' method='POST' class="navbar-form" role="search">
+				<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search" name="input">
+						<div class="input-group-btn">
+								<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+						</div>
+				</div>
+				</form>
+			</div>
+        <?php } ?>
+
         <?php
 			if(!$loggedIn)
 			{ ?>
@@ -38,20 +57,19 @@
                         <input type="password" id="password" name="password" placeholder="Password" class="form-control" value="" required>
                     </div>
                     <button type="submit" name="submit" class="btn btn-success">Sign in</button>
-                    <a href="index.php?id=register"><button type="button" class="btn btn-primary">Register</button></a>
+                    <a href="index.php?id=reg-choose"><button type="button" class="btn btn-primary">Register</button></a>
                 </form>
             </ul>
         <?php } ?>
         <?php
-			if($loggedIn)
-			{ ?>
+			if($loggedIn){ ?>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown" style="padding-top: 5px; padding-bottom: 5px;">
                         <img src="http://placehold.it/40x40" class="img-circle" style="padding-right: 2px;"> <?php echo $_SESSION['loggedin']; ?> <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="mynetwork.html">My Network</a></li>
-                                    <li><a href="#">Messages</a></li>
+                                    <li><a href="index.php?id=mynetwork">My Network</a></li>
+                                    <li><a href="index.php?id=messenger">Messages</a></li>
                                     <li class="divider"></li>
                                     <li><a href="logout.php">Logout</a></li>
                                 </ul>

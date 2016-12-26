@@ -29,16 +29,17 @@
     $password = empty($_POST['password']) ? '' : $_POST['password'];
 
 		if ($link = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)){
-			$sql = "SELECT hashpass FROM Profile WHERE email=?";
+			$sql = "SELECT id, hashpass FROM Profile WHERE email=?";
 			if ($stmt = mysqli_prepare($link, $sql)){
 				mysqli_stmt_bind_param($stmt, "s", $email) or die("bind param");
 				if(mysqli_stmt_execute($stmt)) {
-					mysqli_stmt_bind_result($stmt, $hashpass);
+					mysqli_stmt_bind_result($stmt, $id, $hashpass);
 					mysqli_stmt_fetch($stmt);
 					if (password_verify($password, $hashpass)){
 						echo "<script type='text/javascript'>alert('Login successful!')</script>";
                         $_SESSION['loggedin'] = $email;
                         $_SESSION['error'] = false;
+                        $_SESSION['id'] = $id;
                         header("Location: index.php?id=profile");
 						//die(header("Location: index.php"));
 					}

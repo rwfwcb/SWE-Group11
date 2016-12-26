@@ -14,6 +14,7 @@ section {
 /*anyone still know why this is happening in chrome?*/
 .list-card {
 	display: inline-block;
+	list-style-type: none;
 }
 
 /*connection-card boxes, containing image, name, and any basic info to add later.*/
